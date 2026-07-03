@@ -26,43 +26,33 @@ def get_kaspersky_version() -> str | None:
     KES 64-bit, AVP 32-bit, AVP 64-bit). Returns the version subkey name
     (e.g. ``"AVP21.3"``, ``"KES.0"``) or ``None``.
     """
-    search_paths = [
-        (r"SOFTWARE\WOW6432Node\KasperskyLab", "\\protected"),
-        (r"SOFTWARE\KasperskyLab", "\\protected"),
-        (r"SOFTWARE\WOW6432Node\KasperskyLab", ""),
-        (r"SOFTWARE\KasperskyLab", ""),
+    possible_paths = [
+        r"SOFTWARE\WOW6432Node\KasperskyLab",
+        r"SOFTWARE\WOW6432Node\KasperskyLab\protected",
     ]
-    for base_path, suffix in search_paths:
-        full_path = base_path + suffix
+
+    for path in possible_paths:
         try:
-            key = winreg.OpenKey(
-                winreg.HKEY_LOCAL_MACHINE, full_path, 0, winreg.KEY_READ
-            )
+            key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, path)
+
             for i in range(100):
                 try:
                     subkey = winreg.EnumKey(key, i)
-                    if subkey == "KES":  # empty placeholder entry
-                        continue
-                    env_path = f"{full_path}\\{subkey}\\environment"
-                    try:
-                        env_key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, env_path)
-                        try:
-                            product_root, _ = winreg.QueryValueEx(
-                                env_key, "ProductRoot"
-                            )
-                            if product_root and os.path.exists(
-                                os.path.join(product_root, "avp.exe")
-                            ):
-                                return subkey
-                        finally:
-                            winreg.CloseKey(env_key)
-                    except FileNotFoundError:
-                        pass
+
+                    # AVP* or KES.xx
+                    if (
+                        subkey.startswith("KES")
+                        and len(subkey.split(".")) > 1
+                        or subkey.startswith("AVP")
+                    ):
+                        return subkey
+
                 except OSError:
                     break
-            winreg.CloseKey(key)
-        except FileNotFoundError:
-            continue
+
+        except OSError:
+            pass
+
     return None
 
 

@@ -10,7 +10,7 @@ dependencies = ["psutil>=7.2.2"]
 kaspersky-toolbox = "kaspersky_toolbox.__main__:main"
 
 [tool.setuptools.package-data]
-kaspersky_toolbox = ["act.vbs"]
+kaspersky_toolbox = ["act.vbs", "k.ico"]
 
 [tool.uv]
 package = true

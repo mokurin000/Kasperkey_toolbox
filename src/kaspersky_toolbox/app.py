@@ -73,7 +73,7 @@ class KasperskyToolboxApp:
             self.status_label.config(text="未检测到卡巴斯基软件", fg="red")
             self.root.after(3000, self.exit_app)
         else:
-            print("检测到卡巴斯基！")
+            print(f"检测到卡巴斯基: {self.version_key}")
 
         # Start periodic status polling
         self.root.after(1000, self._update_status)
