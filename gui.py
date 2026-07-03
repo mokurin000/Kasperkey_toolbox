@@ -156,6 +156,7 @@ def reset_activation():
                             )
                             if second_pos > 0 and blob_hex[2:9] == "A700000":
                                 # Found matching certificate - delete it
+                                print(f"删除证书: {cert_path}\\{subkey_name}")
                                 winreg.CloseKey(sub_key)
                                 winreg.DeleteKey(
                                     winreg.HKEY_LOCAL_MACHINE,
@@ -181,12 +182,12 @@ def reset_activation():
         status_label.config(text=f"重置失败: {str(e)}", fg="red")
 
 
-def check_process_running(process_name):
+def check_process_running(process_name: str):
     """检查进程是否运行"""
     import psutil
 
     for proc in psutil.process_iter(["name"]):
-        if proc.info["name"] == process_name:
+        if proc.info["name"].lower() == process_name.lower():
             return True
         return False
 
