@@ -1,9 +1,20 @@
 [project]
 name = "kasperkey-toolbox"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.2.0"
+description = "卡巴斯基工具箱 — Kaspersky activation management utility"
 readme = "README.md"
-requires-python = ">=3.14"
-dependencies = [
-    "psutil>=7.2.2",
-]
+requires-python = ">=3.11"
+dependencies = ["psutil>=7.2.2"]
+
+[project.scripts]
+kaspersky-toolbox = "kaspersky_toolbox.__main__:main"
+
+[tool.setuptools.package-data]
+kaspersky_toolbox = ["act.vbs"]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
