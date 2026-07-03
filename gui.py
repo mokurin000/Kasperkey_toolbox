@@ -1,11 +1,13 @@
-import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
-import winreg
+import os
 import sys
+import glob
 import ctypes
 import subprocess
-import os
-import glob
+import winreg
+import tkinter as tk
+from tkinter import ttk, messagebox, filedialog
+
+import psutil
 
 mutex_name = "Global\\KasperskyToolboxMutex"
 mutex = ctypes.windll.kernel32.CreateMutexA(None, 1, mutex_name.encode())
@@ -74,130 +76,6 @@ def get_registry_value(base_path, subkey_path, value_name):
         return None
 
 
-def reset_activation():
-    """重置卡巴斯基激活/试用期 (对应 act.vbs 的导入重置逻辑)"""
-
-    if not check_conditions():
-        return
-
-    if not version_key:
-        status_label.config(text="未检测到卡巴斯基软件", fg="red")
-        return
-
-    if version_key.startswith("AVP"):
-        base_path = r"SOFTWARE\WOW6432Node\KasperskyLab"
-    elif version_key.startswith("KES"):
-        base_path = r"SOFTWARE\WOW6432Node\KasperskyLab\protected"
-    else:
-        base_path = r"SOFTWARE\WOW6432Node\KasperskyLab"
-
-    try:
-        # 1. Set Ins_InitMode = 1 (对应 VBS: RegWrite Ins_InitMode)
-        key = winreg.OpenKey(
-            winreg.HKEY_LOCAL_MACHINE,
-            f"{base_path}\\{version_key}\\settings",
-            0,
-            winreg.KEY_SET_VALUE,
-        )
-        winreg.SetValueEx(key, "Ins_InitMode", 0, winreg.REG_DWORD, 1)
-        winreg.CloseKey(key)
-
-        # 2. Delete watchdog LicenseInfo (对应 VBS: RegDelete watchdog\LicenseInfo)
-        try:
-            watchdog_path = f"{base_path}\\{version_key}\\watchdog\\LicenseInfo"
-            winreg.DeleteKey(winreg.HKEY_LOCAL_MACHINE, watchdog_path)
-        except FileNotFoundError:
-            pass
-
-        # 3. Read environment values
-        env_key = winreg.OpenKey(
-            winreg.HKEY_LOCAL_MACHINE,
-            f"{base_path}\\{version_key}\\environment",
-            0,
-            winreg.KEY_READ,
-        )
-        data_root, _ = winreg.QueryValueEx(env_key, "DataRoot")
-        product_type, _ = winreg.QueryValueEx(env_key, "ProductType")
-        winreg.CloseKey(env_key)
-
-        # 4. Delete license storage file (对应 VBS: fso.DeleteFile stor_*.bin)
-        license_file = os.path.join(data_root, "Data", f"stor_{product_type}.bin")
-        if os.path.exists(license_file):
-            os.remove(license_file)
-
-        # 5. Clean certificate blobs from SPC store (对应 VBS 证书清理逻辑)
-        cert_path = r"SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates"
-        try:
-            cert_key = winreg.OpenKey(
-                winreg.HKEY_LOCAL_MACHINE,
-                cert_path,
-                0,
-                winreg.KEY_READ | winreg.KEY_WRITE,
-            )
-            product_type_hex = "".join(f"{ord(c):02X}00" for c in product_type)
-            i = 0
-            while True:
-                try:
-                    subkey_name = winreg.EnumKey(cert_key, i)
-                    sub_key = winreg.OpenKey(
-                        winreg.HKEY_LOCAL_MACHINE,
-                        f"{cert_path}\\{subkey_name}",
-                        0,
-                        winreg.KEY_READ,
-                    )
-                    try:
-                        (blob, _) = winreg.QueryValueEx(sub_key, "Blob")
-                        blob_hex = "".join(f"{b:02X}" for b in blob)
-                        # Check if blob contains product type twice (license cert)
-                        first_pos = blob_hex.find(product_type_hex)
-                        if first_pos >= 0:
-                            second_pos = blob_hex.find(
-                                product_type_hex, first_pos + len(product_type_hex)
-                            )
-                            if second_pos > 0 and blob_hex[2:9] == "A700000":
-                                # Found matching certificate - delete it
-                                print(f"删除证书: {cert_path}\\{subkey_name}")
-                                winreg.CloseKey(sub_key)
-                                winreg.DeleteKey(
-                                    winreg.HKEY_LOCAL_MACHINE,
-                                    f"{cert_path}\\{subkey_name}",
-                                )
-                                i -= 1  # Adjust index after deletion
-                    except FileNotFoundError:
-                        pass
-                    finally:
-                        try:
-                            winreg.CloseKey(sub_key)
-                        except Exception:
-                            pass
-                    i += 1
-                except OSError:
-                    break
-            winreg.CloseKey(cert_key)
-        except FileNotFoundError:
-            pass
-
-        status_label.config(text="激活重置成功，请重启系统生效", fg="green")
-    except Exception as e:
-        status_label.config(text=f"重置失败: {str(e)}", fg="red")
-
-
-def check_process_running(process_name: str):
-    """检查进程是否运行"""
-    import psutil
-
-    for proc in psutil.process_iter(["name"]):
-        if proc.info["name"].lower() == process_name.lower():
-            return True
-        return False
-
-
-def exit_app():
-    """退出程序"""
-    root.destroy()
-    sys.exit()
-
-
 def delete_files(path_pattern):
     for path in glob.glob(path_pattern):
         if os.path.isfile(path):
@@ -205,6 +83,161 @@ def delete_files(path_pattern):
                 os.remove(path)
             except Exception as e:
                 print(f"删除文件 {path} 时出错: {e}")
+
+
+def reset_activation():
+    if not check_conditions():
+        return
+
+    result = messagebox.askyesno("确认", "是否重置试用，系统将重启生效")
+    if not result:
+        return
+
+    version_key = get_kaspersky_version()
+    if not version_key:
+        status_label.config(
+            text="未检测到卡巴斯基软件，无法重置激活",
+            fg="red",
+        )
+        return
+
+    if version_key.startswith("AVP"):
+        base_path = r"SOFTWARE\WOW6432Node\KasperskyLab"
+        software = r"SOFTWARE\WOW6432Node"
+        avp = version_key
+
+        delete_files(
+            os.path.join(
+                os.environ["ProgramData"],
+                f"Kaspersky Lab\\{avp}\\Data\\*.bin",
+            )
+        )
+
+        delete_files(
+            os.path.join(
+                os.environ["ProgramData"],
+                f"Kaspersky Lab\\{avp}\\Data\\cat_engine*",
+            )
+        )
+
+        delete_files(
+            os.path.join(
+                os.environ["ProgramData"],
+                f"Kaspersky Lab\\{avp}\\Data\\certdb_v2.*.idx",
+            )
+        )
+
+        commands = [
+            f"reg delete HKLM\\{software}\\KasperskyLab\\{avp}\\Data\\LicCache /f",
+            f"reg delete HKLM\\{software}\\KasperskyLab\\{avp}\\Data\\LicensingActivationErrorStorageLogic /f",
+            f"reg delete HKLM\\{software}\\KasperskyLab\\LicStrg /f",
+            f"reg delete HKLM\\{software}\\KasperskyLab\\{avp}\\Data\\UPAO /f",
+            r"reg delete HKLM\SOFTWARE\Microsoft\SystemCertificates\SPC /f",
+            f"reg add HKLM\\{software}\\KasperskyLab\\{avp}\\settings /v Ins_InitMode /t REG_DWORD /d 1 /f",
+            f"reg add HKLM\\{software}\\KasperskyLab\\{avp}\\Data\\UPAO /v UpaoState /t REG_DWORD /d 1 /f",
+            f"reg add HKLM\\{software}\\KasperskyLab\\{avp}\\environment /v UpaoState /t REG_SZ /d 1 /f",
+            f"reg add HKLM\\{software}\\KasperskyLab\\LicStrg /f",
+            "shutdown /r /t 2",
+        ]
+
+    elif version_key.startswith("KES"):
+        base_path = r"SOFTWARE\WOW6432Node\KasperskyLab\protected"
+        software = r"SOFTWARE\WOW6432Node"
+        kes = version_key
+
+        self_protection_value = get_registry_value(
+            base_path,
+            f"{kes}\\settings",
+            "EnableSelfProtection",
+        )
+
+        if self_protection_value is None:
+            self_protection_value = 0
+
+        report_folder = os.path.join(
+            os.environ["ProgramData"],
+            f"Kaspersky Lab\\{kes}\\Report",
+        )
+
+        data_kvdb_path = os.path.join(
+            os.environ["ProgramData"],
+            f"Kaspersky Lab\\{kes}\\Data\\data.kvdb",
+        )
+
+        try:
+            takeown_command = f'takeown /F "{report_folder}" /R /D Y'
+
+            rd_command = f'RD /S /Q "{report_folder}"'
+
+            subprocess.run(
+                takeown_command,
+                shell=True,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+
+            subprocess.run(
+                rd_command,
+                shell=True,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+
+        except subprocess.CalledProcessError as e:
+            status_label.config(
+                text=f"删除报告文件夹时出错: {e}",
+                fg="red",
+            )
+            return
+
+        delete_files(data_kvdb_path)
+
+        commands = [
+            r"reg delete HKLM\SOFTWARE\Microsoft\SystemCertificates\SPC /f",
+            f"reg delete HKLM\\{software}\\KasperskyLab\\protected\\{kes}\\watchdog\\LicenseInfo /f",
+            f"reg delete HKLM\\{software}\\KasperskyLab\\protected\\{kes}\\watchdog\\Ticket /f",
+            f"reg delete HKLM\\{software}\\KasperskyLab\\protected\\LicStorage /f",
+            f"reg add HKLM\\{software}\\KasperskyLab\\protected\\{kes}\\Data /v Install /t REG_DWORD /d 1 /f",
+            f"reg add HKLM\\{software}\\KasperskyLab\\protected\\{kes}\\settings /v EnableSelfProtection /t REG_DWORD /d {self_protection_value} /f",
+            "shutdown /r /t 2",
+        ]
+
+    for command in commands:
+        try:
+            subprocess.run(
+                command,
+                shell=True,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+        except subprocess.CalledProcessError as e:
+            status_label.config(
+                text=f"重置激活失败：{e}",
+                fg="red",
+            )
+            return
+
+    status_label.config(
+        text="重置激活成功，即将重启电脑生效",
+        fg="green",
+    )
+
+
+def check_process_running(process_name: str):
+    """检查进程是否运行"""
+
+    return any(
+        proc.info["name"] == process_name for proc in psutil.process_iter(["name"])
+    )
+
+
+def exit_app():
+    """退出程序"""
+    root.destroy()
+    sys.exit()
 
 
 def check_conditions():
@@ -512,8 +545,8 @@ def version_update():
 
 
 def update_status():
-
     process_running = check_process_running("avpui.exe")
+
     process_status = "运行中" if process_running else "已退出"
     process_color = "red" if process_running else "green"
     process_value.config(text=process_status, fg=process_color)
@@ -635,7 +668,7 @@ if __name__ == "__main__":
             self_protection_value.config(text="未检测到", fg="red")
             root.after(3000, exit_app)
         else:
-            print("检测中...")
+            print("检测到卡巴斯基！")
             if version_key.startswith("AVP"):
                 base_path = "SOFTWARE\\WOW6432Node\\KasperskyLab"
             elif version_key.startswith("KES"):

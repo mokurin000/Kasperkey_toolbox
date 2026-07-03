@@ -5,3 +5,4 @@
 ## What works
 
 - The tk UI.
+- Reset activation.
