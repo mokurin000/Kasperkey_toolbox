@@ -15,6 +15,23 @@ if ctypes.windll.kernel32.GetLastError() == 183:
     sys.exit(0)
 
 
+def is_admin():
+    """检查是否以管理员权限运行"""
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin() != 0
+    except Exception:
+        return False
+
+
+def run_as_admin():
+    """以管理员权限重新启动程序"""
+    script = sys.argv[0]
+    ctypes.windll.shell32.ShellExecuteW(
+        None, "runas", sys.executable, f'"{script}"', None, 1
+    )
+    sys.exit(0)
+
+
 def get_kaspersky_version():
     """从注册表检测卡巴斯基版本 (对应 act.vbs 的 LiRu 函数)"""
     search_paths = [
@@ -483,11 +500,7 @@ def safe_mode_reboot():
             )
             status_label.config(text="正在重启进入安全模式...", fg="#4CAF50")
     except subprocess.CalledProcessError as e:
-        try:
-            status_label.config(text=f"安全模式启动失败：{str(e)}", fg="#e53935")
-        finally:
-            e = None
-            del e
+        status_label.config(text=f"安全模式启动失败：{str(e)}", fg="#e53935")
 
 
 def version_update():
@@ -581,6 +594,9 @@ def update_status():
 
 
 if __name__ == "__main__":
+    if not is_admin():
+        run_as_admin()
+
     root = tk.Tk()
     root.withdraw()
     root.title("卡巴斯基工具箱  by huawei_518")
