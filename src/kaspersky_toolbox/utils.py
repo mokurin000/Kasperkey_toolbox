@@ -75,9 +75,14 @@ def is_admin() -> bool:
 def run_as_admin() -> None:
     """Re-launch the current script with administrator privileges, then exit."""
     script = sys.argv[0]
-    ctypes.windll.shell32.ShellExecuteW(
-        None, "runas", sys.executable, f'"{script}"', None, 1
-    )
+
+    if script.endswith(".py"):
+        ctypes.windll.shell32.ShellExecuteW(
+            None, "runas", sys.executable, f'"{script}"', None, 1
+        )
+    else:
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", script, "", None, 1)
+
     sys.exit(0)
 
 

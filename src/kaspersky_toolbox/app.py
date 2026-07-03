@@ -6,13 +6,10 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 
 from kaspersky_toolbox.activation import KasperskyActivation, get_kaspersky_version
-from kaspersky_toolbox.singleton import SingletonGuard
 from kaspersky_toolbox.utils import (
     check_process_running,
     get_base_path_for_version,
     get_registry_value,
-    is_admin,
-    run_as_admin,
 )
 
 BUTTONS = [
@@ -44,14 +41,6 @@ class KasperskyToolboxApp:
     """Main application window for the Kaspersky Toolbox."""
 
     def __init__(self) -> None:
-        # Singleton guard — exit if another instance is running
-        with SingletonGuard():
-            pass
-
-        # Admin elevation — re-launch if not elevated
-        if not is_admin():
-            run_as_admin()
-
         self.version_key = get_kaspersky_version()
 
         # Activation controller (no tkinter dependency)
