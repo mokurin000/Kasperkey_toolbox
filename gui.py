@@ -5,6 +5,7 @@ import ctypes
 import subprocess
 import winreg
 import tkinter as tk
+from ctypes import wintypes
 from tkinter import ttk, messagebox, filedialog
 
 import psutil
@@ -15,10 +16,56 @@ if ctypes.windll.kernel32.GetLastError() == 183:
     sys.exit(0)
 
 
+kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+advapi32 = ctypes.WinDLL("advapi32", use_last_error=True)
+
+kernel32.GetCurrentProcess.argtypes = ()
+kernel32.GetCurrentProcess.restype = wintypes.HANDLE
+
+kernel32.CloseHandle.argtypes = (wintypes.HANDLE,)
+kernel32.CloseHandle.restype = wintypes.BOOL
+
+advapi32.OpenProcessToken.argtypes = (
+    wintypes.HANDLE,
+    wintypes.DWORD,
+    ctypes.POINTER(wintypes.HANDLE),
+)
+advapi32.OpenProcessToken.restype = wintypes.BOOL
+
+advapi32.GetTokenInformation.argtypes = (
+    wintypes.HANDLE,
+    ctypes.c_uint,
+    wintypes.LPVOID,
+    wintypes.DWORD,
+    ctypes.POINTER(wintypes.DWORD),
+)
+advapi32.GetTokenInformation.restype = wintypes.BOOL
+
+
 def is_admin():
-    """检查是否以管理员权限运行"""
+    """检查当前进程是否以管理员权限（已提权）运行"""
     try:
-        return ctypes.windll.shell32.IsUserAnAdmin() != 0
+        TOKEN_QUERY = 0x0008
+        TokenElevation = 20
+
+        handle: wintypes.HANDLE = kernel32.GetCurrentProcess()
+        token = ctypes.c_void_p()
+        if not advapi32.OpenProcessToken(handle, TOKEN_QUERY, ctypes.byref(token)):
+            return False
+
+        # TOKEN_ELEVATION.TokenIsElevated
+        token_information = ctypes.c_uint32(0)
+        needed = ctypes.c_uint32(0)
+
+        result = advapi32.GetTokenInformation(
+            token,
+            TokenElevation,
+            ctypes.byref(token_information),
+            ctypes.sizeof(token_information),
+            ctypes.byref(needed),
+        )
+        kernel32.CloseHandle(token)
+        return result != 0 and token_information.value != 0
     except Exception:
         return False
 
