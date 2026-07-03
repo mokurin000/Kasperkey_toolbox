@@ -1,0 +1,3482 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (tkinter)
+              6 STORE_NAME               1 (tk)
+
+  2           8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               2 (('ttk', 'messagebox', 'filedialog'))
+             12 IMPORT_NAME              0 (tkinter)
+             14 IMPORT_FROM              2 (ttk)
+             16 STORE_NAME               2 (ttk)
+             18 IMPORT_FROM              3 (messagebox)
+             20 STORE_NAME               3 (messagebox)
+             22 IMPORT_FROM              4 (filedialog)
+             24 STORE_NAME               4 (filedialog)
+             26 POP_TOP
+
+  3          28 LOAD_CONST               0 (0)
+             30 LOAD_CONST               1 (None)
+             32 IMPORT_NAME              5 (winreg)
+             34 STORE_NAME               5 (winreg)
+
+  4          36 LOAD_CONST               0 (0)
+             38 LOAD_CONST               1 (None)
+             40 IMPORT_NAME              6 (psutil)
+             42 STORE_NAME               6 (psutil)
+
+  5          44 LOAD_CONST               0 (0)
+             46 LOAD_CONST               1 (None)
+             48 IMPORT_NAME              7 (sys)
+             50 STORE_NAME               7 (sys)
+
+  6          52 LOAD_CONST               0 (0)
+             54 LOAD_CONST               1 (None)
+             56 IMPORT_NAME              8 (ctypes)
+             58 STORE_NAME               8 (ctypes)
+
+  7          60 LOAD_CONST               0 (0)
+             62 LOAD_CONST               1 (None)
+             64 IMPORT_NAME              9 (subprocess)
+             66 STORE_NAME               9 (subprocess)
+
+  8          68 LOAD_CONST               0 (0)
+             70 LOAD_CONST               1 (None)
+             72 IMPORT_NAME             10 (os)
+             74 STORE_NAME              10 (os)
+
+  9          76 LOAD_CONST               0 (0)
+             78 LOAD_CONST               1 (None)
+             80 IMPORT_NAME             11 (glob)
+             82 STORE_NAME              11 (glob)
+
+ 12          84 LOAD_CONST               3 ('Global\\KasperskyToolboxMutex')
+             86 STORE_NAME              12 (mutex_name)
+
+ 13          88 LOAD_NAME                8 (ctypes)
+             90 LOAD_ATTR               13 (windll)
+             92 LOAD_ATTR               14 (kernel32)
+             94 LOAD_METHOD             15 (CreateMutexA)
+             96 LOAD_CONST               1 (None)
+             98 LOAD_CONST               4 (1)
+            100 LOAD_NAME               12 (mutex_name)
+            102 LOAD_METHOD             16 (encode)
+            104 CALL_METHOD              0
+            106 CALL_METHOD              3
+            108 STORE_NAME              17 (mutex)
+
+ 14         110 LOAD_NAME                8 (ctypes)
+            112 LOAD_ATTR               13 (windll)
+            114 LOAD_ATTR               14 (kernel32)
+            116 LOAD_METHOD             18 (GetLastError)
+            118 CALL_METHOD              0
+            120 LOAD_CONST               5 (183)
+            122 COMPARE_OP               2 (==)
+            124 POP_JUMP_IF_FALSE      136
+
+ 15         126 LOAD_NAME                7 (sys)
+            128 LOAD_METHOD             19 (exit)
+            130 LOAD_CONST               0 (0)
+            132 CALL_METHOD              1
+            134 POP_TOP
+
+ 18     >>  136 LOAD_CONST               6 (<code object get_kaspersky_version at 0x000002076CDC7870, file "Kaspersky.py", line 18>)
+            138 LOAD_CONST               7 ('get_kaspersky_version')
+            140 MAKE_FUNCTION            0
+            142 STORE_NAME              20 (get_kaspersky_version)
+
+ 40         144 LOAD_CONST               8 (<code object get_registry_value at 0x000002076CDD0EA0, file "Kaspersky.py", line 40>)
+            146 LOAD_CONST               9 ('get_registry_value')
+            148 MAKE_FUNCTION            0
+            150 STORE_NAME              21 (get_registry_value)
+
+ 50         152 LOAD_CONST              10 (<code object check_process_running at 0x000002076CDD0F50, file "Kaspersky.py", line 50>)
+            154 LOAD_CONST              11 ('check_process_running')
+            156 MAKE_FUNCTION            0
+            158 STORE_NAME              22 (check_process_running)
+
+ 58         160 LOAD_CONST              12 (<code object exit_app at 0x000002076CDD62F0, file "Kaspersky.py", line 58>)
+            162 LOAD_CONST              13 ('exit_app')
+            164 MAKE_FUNCTION            0
+            166 STORE_NAME              23 (exit_app)
+
+ 64         168 LOAD_CONST              14 (<code object delete_files at 0x000002076CDD6030, file "Kaspersky.py", line 64>)
+            170 LOAD_CONST              15 ('delete_files')
+            172 MAKE_FUNCTION            0
+            174 STORE_NAME              24 (delete_files)
+
+ 74         176 LOAD_CONST              16 (<code object reset_activation at 0x000002076CDD60E0, file "Kaspersky.py", line 74>)
+            178 LOAD_CONST              17 ('reset_activation')
+            180 MAKE_FUNCTION            0
+            182 STORE_NAME              25 (reset_activation)
+
+148         184 LOAD_CONST              18 (<code object check_conditions at 0x000002076CDD6190, file "Kaspersky.py", line 148>)
+            186 LOAD_CONST              19 ('check_conditions')
+            188 MAKE_FUNCTION            0
+            190 STORE_NAME              26 (check_conditions)
+
+175         192 LOAD_CONST              20 (<code object get_patch at 0x000002076CDD6240, file "Kaspersky.py", line 175>)
+            194 LOAD_CONST              21 ('get_patch')
+            196 MAKE_FUNCTION            0
+            198 STORE_NAME              27 (get_patch)
+
+201         200 LOAD_CONST              22 (<code object desktop_protection at 0x000002076CDD63A0, file "Kaspersky.py", line 201>)
+            202 LOAD_CONST              23 ('desktop_protection')
+            204 MAKE_FUNCTION            0
+            206 STORE_NAME              28 (desktop_protection)
+
+223         208 LOAD_CONST              24 (<code object get_vbs_path at 0x000002076CDD6920, file "Kaspersky.py", line 223>)
+            210 LOAD_CONST              25 ('get_vbs_path')
+            212 MAKE_FUNCTION            0
+            214 STORE_NAME              29 (get_vbs_path)
+
+234         216 LOAD_CONST              26 (<code object export_license at 0x000002076CDDBB30, file "Kaspersky.py", line 234>)
+            218 LOAD_CONST              27 ('export_license')
+            220 MAKE_FUNCTION            0
+            222 STORE_NAME              30 (export_license)
+
+241         224 LOAD_CONST              28 (<code object perform_export at 0x000002076CDDF9D0, file "Kaspersky.py", line 241>)
+            226 LOAD_CONST              29 ('perform_export')
+            228 MAKE_FUNCTION            0
+            230 STORE_NAME              31 (perform_export)
+
+256         232 LOAD_CONST              30 (<code object import_license at 0x000002076CF54870, file "Kaspersky.py", line 256>)
+            234 LOAD_CONST              31 ('import_license')
+            236 MAKE_FUNCTION            0
+            238 STORE_NAME              32 (import_license)
+
+269         240 LOAD_CONST              32 (<code object perform_import at 0x000002076CF5A7C0, file "Kaspersky.py", line 269>)
+            242 LOAD_CONST              33 ('perform_import')
+            244 MAKE_FUNCTION            0
+            246 STORE_NAME              33 (perform_import)
+
+284         248 LOAD_CONST              34 (<code object toggle_buttons_state at 0x000002076CF5A660, file "Kaspersky.py", line 284>)
+            250 LOAD_CONST              35 ('toggle_buttons_state')
+            252 MAKE_FUNCTION            0
+            254 STORE_NAME              34 (toggle_buttons_state)
+
+294         256 LOAD_CONST              36 (<code object disable_self_protection at 0x000002076CF63030, file "Kaspersky.py", line 294>)
+            258 LOAD_CONST              37 ('disable_self_protection')
+            260 MAKE_FUNCTION            0
+            262 STORE_NAME              35 (disable_self_protection)
+
+329         264 LOAD_CONST              38 (<code object safe_mode_reboot at 0x000002076CF62F50, file "Kaspersky.py", line 329>)
+            266 LOAD_CONST              39 ('safe_mode_reboot')
+            268 MAKE_FUNCTION            0
+            270 STORE_NAME              36 (safe_mode_reboot)
+
+343         272 LOAD_CONST              40 (<code object version_update at 0x000002076CF62EA0, file "Kaspersky.py", line 343>)
+            274 LOAD_CONST              41 ('version_update')
+            276 MAKE_FUNCTION            0
+            278 STORE_NAME              37 (version_update)
+
+373         280 LOAD_CONST              42 (<code object update_status at 0x000002076CF62DF0, file "Kaspersky.py", line 373>)
+            282 LOAD_CONST              43 ('update_status')
+            284 MAKE_FUNCTION            0
+            286 STORE_NAME              38 (update_status)
+
+400         288 LOAD_NAME                1 (tk)
+            290 LOAD_METHOD             39 (Tk)
+            292 CALL_METHOD              0
+            294 STORE_NAME              40 (root)
+
+401         296 LOAD_NAME               40 (root)
+            298 LOAD_METHOD             41 (withdraw)
+            300 CALL_METHOD              0
+            302 POP_TOP
+
+402         304 LOAD_NAME               40 (root)
+            306 LOAD_METHOD             42 (title)
+            308 LOAD_CONST              44 ('卡巴斯基工具箱  by huawei_518')
+            310 CALL_METHOD              1
+            312 POP_TOP
+
+405         314 LOAD_NAME               43 (getattr)
+            316 LOAD_NAME                7 (sys)
+            318 LOAD_CONST              45 ('frozen')
+            320 LOAD_CONST              46 (False)
+            322 CALL_FUNCTION            3
+            324 EXTENDED_ARG             1
+            326 POP_JUMP_IF_FALSE      336
+
+407         328 LOAD_NAME                7 (sys)
+            330 LOAD_ATTR               44 (_MEIPASS)
+            332 STORE_NAME              45 (base_path)
+            334 JUMP_FORWARD            20 (to 356)
+
+410     >>  336 LOAD_NAME               10 (os)
+            338 LOAD_ATTR               46 (path)
+            340 LOAD_METHOD             47 (dirname)
+            342 LOAD_NAME               10 (os)
+            344 LOAD_ATTR               46 (path)
+            346 LOAD_METHOD             48 (abspath)
+            348 LOAD_NAME               49 (__file__)
+            350 CALL_METHOD              1
+            352 CALL_METHOD              1
+            354 STORE_NAME              45 (base_path)
+
+413     >>  356 LOAD_NAME               10 (os)
+            358 LOAD_ATTR               46 (path)
+            360 LOAD_METHOD             50 (join)
+            362 LOAD_NAME               45 (base_path)
+            364 LOAD_CONST              47 ('k.ico')
+            366 CALL_METHOD              2
+            368 STORE_NAME              51 (icon_path)
+
+415         370 SETUP_FINALLY           14 (to 386)
+
+416         372 LOAD_NAME               40 (root)
+            374 LOAD_METHOD             52 (iconbitmap)
+            376 LOAD_NAME               51 (icon_path)
+            378 CALL_METHOD              1
+            380 POP_TOP
+            382 POP_BLOCK
+            384 JUMP_FORWARD            32 (to 418)
+
+417     >>  386 DUP_TOP
+            388 LOAD_NAME                1 (tk)
+            390 LOAD_ATTR               53 (TclError)
+            392 COMPARE_OP              10 (exception match)
+            394 EXTENDED_ARG             1
+            396 POP_JUMP_IF_FALSE      416
+            398 POP_TOP
+            400 POP_TOP
+            402 POP_TOP
+
+418         404 LOAD_NAME               54 (print)
+            406 LOAD_CONST              48 ('未能找到图标文件。')
+            408 CALL_FUNCTION            1
+            410 POP_TOP
+            412 POP_EXCEPT
+            414 JUMP_FORWARD             2 (to 418)
+        >>  416 END_FINALLY
+
+421     >>  418 LOAD_NAME                2 (ttk)
+            420 LOAD_METHOD             55 (Style)
+            422 CALL_METHOD              0
+            424 STORE_NAME              56 (style)
+
+422         426 LOAD_NAME               56 (style)
+            428 LOAD_ATTR               57 (map)
+            430 LOAD_CONST              49 ('TButton')
+
+423         432 LOAD_CONST              50 (('disabled', 'gray'))
+            434 BUILD_LIST               1
+
+424         436 LOAD_CONST              51 (('disabled', '#d9d9d9'))
+            438 BUILD_LIST               1
+
+422         440 LOAD_CONST              52 (('foreground', 'background'))
+            442 CALL_FUNCTION_KW         3
+            444 POP_TOP
+
+428         446 LOAD_NAME               40 (root)
+            448 LOAD_METHOD             58 (resizable)
+            450 LOAD_CONST              46 (False)
+            452 LOAD_CONST              46 (False)
+            454 CALL_METHOD              2
+            456 POP_TOP
+
+431         458 LOAD_NAME               40 (root)
+            460 LOAD_METHOD             59 (winfo_screenwidth)
+            462 CALL_METHOD              0
+            464 STORE_NAME              60 (screen_width)
+
+432         466 LOAD_NAME               40 (root)
+            468 LOAD_METHOD             61 (winfo_screenheight)
+            470 CALL_METHOD              0
+            472 STORE_NAME              62 (screen_height)
+
+433         474 LOAD_CONST              53 ((600, 380))
+            476 UNPACK_SEQUENCE          2
+            478 STORE_NAME              63 (window_width)
+            480 STORE_NAME              64 (window_height)
+
+434         482 LOAD_NAME               60 (screen_width)
+            484 LOAD_NAME               63 (window_width)
+            486 BINARY_SUBTRACT
+            488 LOAD_CONST              54 (2)
+            490 BINARY_FLOOR_DIVIDE
+            492 STORE_NAME              65 (x)
+
+435         494 LOAD_NAME               62 (screen_height)
+            496 LOAD_NAME               64 (window_height)
+            498 BINARY_SUBTRACT
+            500 LOAD_CONST              54 (2)
+            502 BINARY_FLOOR_DIVIDE
+            504 STORE_NAME              66 (y)
+
+436         506 LOAD_NAME               40 (root)
+            508 LOAD_METHOD             67 (geometry)
+            510 LOAD_NAME               63 (window_width)
+            512 FORMAT_VALUE             0
+            514 LOAD_CONST              55 ('x')
+            516 LOAD_NAME               64 (window_height)
+            518 FORMAT_VALUE             0
+            520 LOAD_CONST              56 ('+')
+            522 LOAD_NAME               65 (x)
+            524 FORMAT_VALUE             0
+            526 LOAD_CONST              56 ('+')
+            528 LOAD_NAME               66 (y)
+            530 FORMAT_VALUE             0
+            532 BUILD_STRING             7
+            534 CALL_METHOD              1
+            536 POP_TOP
+
+438         538 LOAD_NAME               40 (root)
+            540 LOAD_ATTR               68 (configure)
+            542 LOAD_CONST              57 ('#f0f0f0')
+            544 LOAD_CONST              58 (('bg',))
+            546 CALL_FUNCTION_KW         1
+            548 POP_TOP
+
+439         550 LOAD_NAME               40 (root)
+            552 LOAD_ATTR               69 (columnconfigure)
+            554 LOAD_CONST               0 (0)
+            556 LOAD_CONST               4 (1)
+            558 LOAD_CONST              59 (('weight',))
+            560 CALL_FUNCTION_KW         2
+            562 POP_TOP
+
+440         564 LOAD_NAME               40 (root)
+            566 LOAD_ATTR               70 (rowconfigure)
+            568 LOAD_CONST              60 (4)
+            570 LOAD_CONST               4 (1)
+            572 LOAD_CONST              59 (('weight',))
+            574 CALL_FUNCTION_KW         2
+            576 POP_TOP
+
+443         578 LOAD_NAME                1 (tk)
+            580 LOAD_ATTR               71 (Frame)
+            582 LOAD_NAME               40 (root)
+            584 LOAD_CONST              61 ('#87CEEB')
+            586 LOAD_CONST              58 (('bg',))
+            588 CALL_FUNCTION_KW         2
+            590 STORE_NAME              72 (title_frame)
+
+444         592 LOAD_NAME               72 (title_frame)
+            594 LOAD_ATTR               73 (grid)
+            596 LOAD_CONST               0 (0)
+            598 LOAD_CONST               0 (0)
+            600 LOAD_CONST              54 (2)
+            602 LOAD_CONST              62 ('nsew')
+            604 LOAD_CONST              63 (10)
+            606 LOAD_CONST              64 (('row', 'column', 'columnspan', 'sticky', 'pady'))
+            608 CALL_FUNCTION_KW         5
+            610 POP_TOP
+
+445         612 LOAD_NAME                1 (tk)
+            614 LOAD_ATTR               74 (Label)
+            616 LOAD_NAME               72 (title_frame)
+            618 LOAD_CONST              65 ('卡巴斯基工具箱')
+            620 LOAD_CONST              66 (('Segoe UI', 20))
+            622 LOAD_CONST              61 ('#87CEEB')
+            624 LOAD_CONST              67 ('purple')
+            626 LOAD_CONST              68 (('text', 'font', 'bg', 'fg'))
+            628 CALL_FUNCTION_KW         5
+            630 STORE_NAME              75 (title_label)
+
+446         632 LOAD_NAME               75 (title_label)
+            634 LOAD_ATTR               76 (pack)
+            636 LOAD_CONST              69 (5)
+            638 LOAD_NAME                1 (tk)
+            640 LOAD_ATTR               77 (CENTER)
+            642 LOAD_CONST              70 (('pady', 'anchor'))
+            644 CALL_FUNCTION_KW         2
+            646 POP_TOP
+
+449         648 LOAD_NAME                1 (tk)
+            650 LOAD_ATTR               71 (Frame)
+            652 LOAD_NAME               40 (root)
+            654 LOAD_CONST              57 ('#f0f0f0')
+            656 LOAD_CONST              58 (('bg',))
+            658 CALL_FUNCTION_KW         2
+            660 STORE_NAME              78 (info_frame)
+
+450         662 LOAD_NAME               78 (info_frame)
+            664 LOAD_ATTR               73 (grid)
+            666 LOAD_CONST               4 (1)
+            668 LOAD_CONST               0 (0)
+            670 LOAD_CONST              54 (2)
+            672 LOAD_CONST              62 ('nsew')
+            674 LOAD_CONST              63 (10)
+            676 LOAD_CONST              64 (('row', 'column', 'columnspan', 'sticky', 'pady'))
+            678 CALL_FUNCTION_KW         5
+            680 POP_TOP
+
+451         682 LOAD_NAME               78 (info_frame)
+            684 LOAD_ATTR               69 (columnconfigure)
+            686 LOAD_CONST               0 (0)
+            688 LOAD_CONST               4 (1)
+            690 LOAD_CONST              59 (('weight',))
+            692 CALL_FUNCTION_KW         2
+            694 POP_TOP
+
+452         696 LOAD_NAME               78 (info_frame)
+            698 LOAD_ATTR               69 (columnconfigure)
+            700 LOAD_CONST               4 (1)
+            702 LOAD_CONST               4 (1)
+            704 LOAD_CONST              59 (('weight',))
+            706 CALL_FUNCTION_KW         2
+            708 POP_TOP
+
+455         710 LOAD_NAME               20 (get_kaspersky_version)
+            712 CALL_FUNCTION            0
+            714 STORE_NAME              79 (version_key)
+
+458         716 LOAD_NAME                1 (tk)
+            718 LOAD_ATTR               74 (Label)
+            720 LOAD_NAME               78 (info_frame)
+            722 LOAD_CONST              71 ('产品名称：')
+            724 LOAD_CONST              72 (('Segoe UI', 12))
+            726 LOAD_CONST              73 ('darkblue')
+            728 LOAD_CONST              57 ('#f0f0f0')
+            730 LOAD_CONST              74 (('text', 'font', 'fg', 'bg'))
+            732 CALL_FUNCTION_KW         5
+            734 STORE_NAME              80 (product_name_prefix)
+
+459         736 LOAD_NAME               80 (product_name_prefix)
+            738 LOAD_ATTR               73 (grid)
+            740 LOAD_CONST               0 (0)
+            742 LOAD_CONST               0 (0)
+            744 LOAD_CONST              75 ('e')
+            746 LOAD_CONST              69 (5)
+            748 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+            750 CALL_FUNCTION_KW         4
+            752 POP_TOP
+
+460         754 LOAD_NAME                1 (tk)
+            756 LOAD_ATTR               74 (Label)
+            758 LOAD_NAME               78 (info_frame)
+            760 LOAD_CONST              77 ('')
+            762 LOAD_CONST              72 (('Segoe UI', 12))
+            764 LOAD_CONST              57 ('#f0f0f0')
+            766 LOAD_CONST              78 (('text', 'font', 'bg'))
+            768 CALL_FUNCTION_KW         4
+            770 STORE_NAME              81 (product_name_value)
+
+461         772 LOAD_NAME               81 (product_name_value)
+            774 LOAD_ATTR               73 (grid)
+            776 LOAD_CONST               0 (0)
+            778 LOAD_CONST               4 (1)
+            780 LOAD_CONST              79 ('w')
+            782 LOAD_CONST              69 (5)
+            784 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+            786 CALL_FUNCTION_KW         4
+            788 POP_TOP
+
+464         790 LOAD_NAME                1 (tk)
+            792 LOAD_ATTR               74 (Label)
+            794 LOAD_NAME               78 (info_frame)
+            796 LOAD_CONST              80 ('产品版本：')
+            798 LOAD_CONST              72 (('Segoe UI', 12))
+            800 LOAD_CONST              73 ('darkblue')
+            802 LOAD_CONST              57 ('#f0f0f0')
+            804 LOAD_CONST              74 (('text', 'font', 'fg', 'bg'))
+            806 CALL_FUNCTION_KW         5
+            808 STORE_NAME              82 (product_version_prefix)
+
+465         810 LOAD_NAME               82 (product_version_prefix)
+            812 LOAD_ATTR               73 (grid)
+            814 LOAD_CONST               4 (1)
+            816 LOAD_CONST               0 (0)
+            818 LOAD_CONST              75 ('e')
+            820 LOAD_CONST              69 (5)
+            822 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+            824 CALL_FUNCTION_KW         4
+            826 POP_TOP
+
+466         828 LOAD_NAME                1 (tk)
+            830 LOAD_ATTR               74 (Label)
+            832 LOAD_NAME               78 (info_frame)
+            834 LOAD_CONST              77 ('')
+            836 LOAD_CONST              72 (('Segoe UI', 12))
+            838 LOAD_CONST              57 ('#f0f0f0')
+            840 LOAD_CONST              78 (('text', 'font', 'bg'))
+            842 CALL_FUNCTION_KW         4
+            844 STORE_NAME              83 (product_version_value)
+
+467         846 LOAD_NAME               83 (product_version_value)
+            848 LOAD_ATTR               73 (grid)
+            850 LOAD_CONST               4 (1)
+            852 LOAD_CONST               4 (1)
+            854 LOAD_CONST              79 ('w')
+            856 LOAD_CONST              69 (5)
+            858 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+            860 CALL_FUNCTION_KW         4
+            862 POP_TOP
+
+470         864 LOAD_NAME                1 (tk)
+            866 LOAD_ATTR               74 (Label)
+            868 LOAD_NAME               78 (info_frame)
+            870 LOAD_CONST              81 ('自我保护：')
+            872 LOAD_CONST              72 (('Segoe UI', 12))
+            874 LOAD_CONST              73 ('darkblue')
+            876 LOAD_CONST              57 ('#f0f0f0')
+            878 LOAD_CONST              74 (('text', 'font', 'fg', 'bg'))
+            880 CALL_FUNCTION_KW         5
+            882 STORE_NAME              84 (self_protection_prefix)
+
+471         884 LOAD_NAME               84 (self_protection_prefix)
+            886 LOAD_ATTR               73 (grid)
+            888 LOAD_CONST              82 (3)
+            890 LOAD_CONST               0 (0)
+            892 LOAD_CONST              75 ('e')
+            894 LOAD_CONST              69 (5)
+            896 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+            898 CALL_FUNCTION_KW         4
+            900 POP_TOP
+
+472         902 LOAD_NAME                1 (tk)
+            904 LOAD_ATTR               74 (Label)
+            906 LOAD_NAME               78 (info_frame)
+            908 LOAD_CONST              77 ('')
+            910 LOAD_CONST              72 (('Segoe UI', 12))
+            912 LOAD_CONST              57 ('#f0f0f0')
+            914 LOAD_CONST              78 (('text', 'font', 'bg'))
+            916 CALL_FUNCTION_KW         4
+            918 STORE_NAME              85 (self_protection_value)
+
+473         920 LOAD_NAME               85 (self_protection_value)
+            922 LOAD_ATTR               73 (grid)
+            924 LOAD_CONST              82 (3)
+            926 LOAD_CONST               4 (1)
+            928 LOAD_CONST              79 ('w')
+            930 LOAD_CONST              69 (5)
+            932 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+            934 CALL_FUNCTION_KW         4
+            936 POP_TOP
+
+475         938 LOAD_NAME               79 (version_key)
+            940 EXTENDED_ARG             3
+            942 POP_JUMP_IF_TRUE      1004
+
+476         944 LOAD_CONST              83 ('未检测到卡巴斯基软件')
+            946 STORE_NAME              86 (status_text)
+
+477         948 LOAD_NAME               81 (product_name_value)
+            950 LOAD_ATTR               87 (config)
+            952 LOAD_CONST              84 ('未检测到')
+            954 LOAD_CONST              85 ('red')
+            956 LOAD_CONST              86 (('text', 'fg'))
+            958 CALL_FUNCTION_KW         2
+            960 POP_TOP
+
+478         962 LOAD_NAME               83 (product_version_value)
+            964 LOAD_ATTR               87 (config)
+            966 LOAD_CONST              84 ('未检测到')
+            968 LOAD_CONST              85 ('red')
+            970 LOAD_CONST              86 (('text', 'fg'))
+            972 CALL_FUNCTION_KW         2
+            974 POP_TOP
+
+479         976 LOAD_NAME               85 (self_protection_value)
+            978 LOAD_ATTR               87 (config)
+            980 LOAD_CONST              84 ('未检测到')
+            982 LOAD_CONST              85 ('red')
+            984 LOAD_CONST              86 (('text', 'fg'))
+            986 CALL_FUNCTION_KW         2
+            988 POP_TOP
+
+480         990 LOAD_NAME               40 (root)
+            992 LOAD_METHOD             88 (after)
+            994 LOAD_CONST              87 (3000)
+            996 LOAD_NAME               23 (exit_app)
+            998 CALL_METHOD              2
+           1000 POP_TOP
+           1002 JUMP_FORWARD           136 (to 1140)
+
+482     >> 1004 LOAD_NAME               79 (version_key)
+           1006 LOAD_METHOD             89 (startswith)
+           1008 LOAD_CONST              88 ('AVP')
+           1010 CALL_METHOD              1
+           1012 EXTENDED_ARG             3
+           1014 POP_JUMP_IF_FALSE     1022
+
+483        1016 LOAD_CONST              89 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+           1018 STORE_NAME              45 (base_path)
+           1020 JUMP_FORWARD            22 (to 1044)
+
+484     >> 1022 LOAD_NAME               79 (version_key)
+           1024 LOAD_METHOD             89 (startswith)
+           1026 LOAD_CONST              90 ('KES')
+           1028 CALL_METHOD              1
+           1030 EXTENDED_ARG             4
+           1032 POP_JUMP_IF_FALSE     1040
+
+485        1034 LOAD_CONST              91 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+           1036 STORE_NAME              45 (base_path)
+           1038 JUMP_FORWARD             4 (to 1044)
+
+487     >> 1040 LOAD_CONST              89 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+           1042 STORE_NAME              45 (base_path)
+
+490     >> 1044 LOAD_NAME               21 (get_registry_value)
+
+491        1046 LOAD_NAME               45 (base_path)
+
+492        1048 LOAD_NAME               79 (version_key)
+           1050 FORMAT_VALUE             0
+           1052 LOAD_CONST              92 ('\\environment')
+           1054 BUILD_STRING             2
+
+493        1056 LOAD_CONST              93 ('ProductName')
+
+490        1058 CALL_FUNCTION            3
+           1060 STORE_NAME              90 (product_name)
+
+495        1062 LOAD_NAME               81 (product_name_value)
+           1064 LOAD_ATTR               87 (config)
+           1066 LOAD_NAME               90 (product_name)
+           1068 EXTENDED_ARG             4
+           1070 JUMP_IF_TRUE_OR_POP   1074
+           1072 LOAD_CONST              84 ('未检测到')
+        >> 1074 LOAD_NAME               90 (product_name)
+           1076 EXTENDED_ARG             4
+           1078 POP_JUMP_IF_FALSE     1084
+           1080 LOAD_CONST              94 ('green')
+           1082 JUMP_FORWARD             2 (to 1086)
+        >> 1084 LOAD_CONST              85 ('red')
+        >> 1086 LOAD_CONST              86 (('text', 'fg'))
+           1088 CALL_FUNCTION_KW         2
+           1090 POP_TOP
+
+498        1092 LOAD_NAME               21 (get_registry_value)
+
+499        1094 LOAD_NAME               45 (base_path)
+
+500        1096 LOAD_NAME               79 (version_key)
+           1098 FORMAT_VALUE             0
+           1100 LOAD_CONST              92 ('\\environment')
+           1102 BUILD_STRING             2
+
+501        1104 LOAD_CONST              95 ('Ins_ProductVersion')
+
+498        1106 CALL_FUNCTION            3
+           1108 STORE_NAME              91 (product_version)
+
+503        1110 LOAD_NAME               83 (product_version_value)
+           1112 LOAD_ATTR               87 (config)
+           1114 LOAD_NAME               91 (product_version)
+           1116 EXTENDED_ARG             4
+           1118 JUMP_IF_TRUE_OR_POP   1122
+           1120 LOAD_CONST              84 ('未检测到')
+        >> 1122 LOAD_NAME               91 (product_version)
+           1124 EXTENDED_ARG             4
+           1126 POP_JUMP_IF_FALSE     1132
+           1128 LOAD_CONST              94 ('green')
+           1130 JUMP_FORWARD             2 (to 1134)
+        >> 1132 LOAD_CONST              85 ('red')
+        >> 1134 LOAD_CONST              86 (('text', 'fg'))
+           1136 CALL_FUNCTION_KW         2
+           1138 POP_TOP
+
+506     >> 1140 LOAD_NAME                1 (tk)
+           1142 LOAD_ATTR               74 (Label)
+           1144 LOAD_NAME               78 (info_frame)
+           1146 LOAD_CONST              96 ('产品进程：')
+           1148 LOAD_CONST              72 (('Segoe UI', 12))
+           1150 LOAD_CONST              73 ('darkblue')
+           1152 LOAD_CONST              57 ('#f0f0f0')
+           1154 LOAD_CONST              74 (('text', 'font', 'fg', 'bg'))
+           1156 CALL_FUNCTION_KW         5
+           1158 STORE_NAME              92 (process_prefix)
+
+507        1160 LOAD_NAME               92 (process_prefix)
+           1162 LOAD_ATTR               73 (grid)
+           1164 LOAD_CONST              54 (2)
+           1166 LOAD_CONST               0 (0)
+           1168 LOAD_CONST              75 ('e')
+           1170 LOAD_CONST              69 (5)
+           1172 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+           1174 CALL_FUNCTION_KW         4
+           1176 POP_TOP
+
+509        1178 LOAD_NAME               22 (check_process_running)
+           1180 LOAD_CONST              97 ('avpui.exe')
+           1182 CALL_FUNCTION            1
+           1184 STORE_NAME              93 (process_running)
+
+510        1186 LOAD_NAME               93 (process_running)
+           1188 EXTENDED_ARG             4
+           1190 POP_JUMP_IF_FALSE     1196
+           1192 LOAD_CONST              98 ('运行中')
+           1194 JUMP_FORWARD             2 (to 1198)
+        >> 1196 LOAD_CONST              99 ('已退出')
+        >> 1198 STORE_NAME              94 (process_status)
+
+511        1200 LOAD_NAME               93 (process_running)
+           1202 EXTENDED_ARG             4
+           1204 POP_JUMP_IF_FALSE     1210
+           1206 LOAD_CONST              85 ('red')
+           1208 JUMP_FORWARD             2 (to 1212)
+        >> 1210 LOAD_CONST              94 ('green')
+        >> 1212 STORE_NAME              95 (process_color)
+
+512        1214 LOAD_NAME                1 (tk)
+           1216 LOAD_ATTR               74 (Label)
+           1218 LOAD_NAME               78 (info_frame)
+           1220 LOAD_NAME               94 (process_status)
+
+513        1222 LOAD_CONST              72 (('Segoe UI', 12))
+           1224 LOAD_NAME               95 (process_color)
+           1226 LOAD_CONST              57 ('#f0f0f0')
+
+512        1228 LOAD_CONST              74 (('text', 'font', 'fg', 'bg'))
+           1230 CALL_FUNCTION_KW         5
+           1232 STORE_NAME              96 (process_value)
+
+514        1234 LOAD_NAME               96 (process_value)
+           1236 LOAD_ATTR               73 (grid)
+           1238 LOAD_CONST              54 (2)
+           1240 LOAD_CONST               4 (1)
+           1242 LOAD_CONST              79 ('w')
+           1244 LOAD_CONST              69 (5)
+           1246 LOAD_CONST              76 (('row', 'column', 'sticky', 'padx'))
+           1248 CALL_FUNCTION_KW         4
+           1250 POP_TOP
+
+517        1252 LOAD_NAME               79 (version_key)
+           1254 EXTENDED_ARG             5
+           1256 POP_JUMP_IF_FALSE     1394
+
+518        1258 LOAD_NAME               79 (version_key)
+           1260 LOAD_METHOD             89 (startswith)
+           1262 LOAD_CONST              88 ('AVP')
+           1264 CALL_METHOD              1
+           1266 EXTENDED_ARG             4
+           1268 POP_JUMP_IF_FALSE     1276
+
+519        1270 LOAD_CONST              89 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+           1272 STORE_NAME              45 (base_path)
+           1274 JUMP_FORWARD            22 (to 1298)
+
+520     >> 1276 LOAD_NAME               79 (version_key)
+           1278 LOAD_METHOD             89 (startswith)
+           1280 LOAD_CONST              90 ('KES')
+           1282 CALL_METHOD              1
+           1284 EXTENDED_ARG             5
+           1286 POP_JUMP_IF_FALSE     1294
+
+521        1288 LOAD_CONST              91 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+           1290 STORE_NAME              45 (base_path)
+           1292 JUMP_FORWARD             4 (to 1298)
+
+523     >> 1294 LOAD_CONST              89 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+           1296 STORE_NAME              45 (base_path)
+
+525     >> 1298 LOAD_NAME               21 (get_registry_value)
+
+526        1300 LOAD_NAME               45 (base_path)
+
+527        1302 LOAD_NAME               79 (version_key)
+           1304 FORMAT_VALUE             0
+           1306 LOAD_CONST             100 ('\\settings')
+           1308 BUILD_STRING             2
+
+528        1310 LOAD_CONST             101 ('EnableSelfProtection')
+
+525        1312 CALL_FUNCTION            3
+           1314 STORE_NAME              97 (self_protection)
+
+530        1316 LOAD_NAME               97 (self_protection)
+           1318 LOAD_CONST               4 (1)
+           1320 COMPARE_OP               2 (==)
+           1322 EXTENDED_ARG             5
+           1324 POP_JUMP_IF_FALSE     1330
+           1326 LOAD_CONST             102 ('已开启')
+           1328 JUMP_FORWARD            16 (to 1346)
+        >> 1330 LOAD_NAME               97 (self_protection)
+           1332 LOAD_CONST               0 (0)
+           1334 COMPARE_OP               2 (==)
+           1336 EXTENDED_ARG             5
+           1338 POP_JUMP_IF_FALSE     1344
+           1340 LOAD_CONST             103 ('已关闭')
+           1342 JUMP_FORWARD             2 (to 1346)
+        >> 1344 LOAD_CONST              84 ('未检测到')
+        >> 1346 STORE_NAME              98 (self_protection_status)
+
+531        1348 LOAD_NAME               97 (self_protection)
+           1350 LOAD_CONST               4 (1)
+           1352 COMPARE_OP               2 (==)
+           1354 EXTENDED_ARG             5
+           1356 POP_JUMP_IF_FALSE     1362
+           1358 LOAD_CONST              85 ('red')
+           1360 JUMP_FORWARD            16 (to 1378)
+        >> 1362 LOAD_NAME               97 (self_protection)
+           1364 LOAD_CONST               1 (None)
+           1366 COMPARE_OP               8 (is)
+           1368 EXTENDED_ARG             5
+           1370 POP_JUMP_IF_FALSE     1376
+           1372 LOAD_CONST              85 ('red')
+           1374 JUMP_FORWARD             2 (to 1378)
+        >> 1376 LOAD_CONST              94 ('green')
+        >> 1378 STORE_NAME              99 (self_protection_color)
+
+532        1380 LOAD_NAME               85 (self_protection_value)
+           1382 LOAD_ATTR               87 (config)
+           1384 LOAD_NAME               98 (self_protection_status)
+           1386 LOAD_NAME               99 (self_protection_color)
+           1388 LOAD_CONST              86 (('text', 'fg'))
+           1390 CALL_FUNCTION_KW         2
+           1392 POP_TOP
+
+535     >> 1394 LOAD_NAME                1 (tk)
+           1396 LOAD_ATTR               71 (Frame)
+           1398 LOAD_NAME               40 (root)
+           1400 LOAD_CONST              57 ('#f0f0f0')
+           1402 LOAD_CONST              58 (('bg',))
+           1404 CALL_FUNCTION_KW         2
+           1406 STORE_NAME             100 (button_frame)
+
+536        1408 LOAD_NAME              100 (button_frame)
+           1410 LOAD_ATTR               73 (grid)
+           1412 LOAD_CONST              54 (2)
+           1414 LOAD_CONST               0 (0)
+           1416 LOAD_CONST              54 (2)
+           1418 LOAD_CONST              62 ('nsew')
+           1420 LOAD_CONST              63 (10)
+           1422 LOAD_CONST              64 (('row', 'column', 'columnspan', 'sticky', 'pady'))
+           1424 CALL_FUNCTION_KW         5
+           1426 POP_TOP
+
+537        1428 LOAD_NAME              101 (range)
+           1430 LOAD_CONST              60 (4)
+           1432 CALL_FUNCTION            1
+           1434 GET_ITER
+        >> 1436 FOR_ITER                20 (to 1458)
+           1438 STORE_NAME             102 (i)
+
+538        1440 LOAD_NAME              100 (button_frame)
+           1442 LOAD_ATTR               69 (columnconfigure)
+           1444 LOAD_NAME              102 (i)
+           1446 LOAD_CONST               4 (1)
+           1448 LOAD_CONST              59 (('weight',))
+           1450 CALL_FUNCTION_KW         2
+           1452 POP_TOP
+           1454 EXTENDED_ARG             5
+           1456 JUMP_ABSOLUTE         1436
+
+540     >> 1458 LOAD_CONST             104 ('重置激活')
+           1460 LOAD_CONST             105 ('导出授权')
+           1462 LOAD_CONST             106 ('导入授权')
+           1464 LOAD_CONST             107 ('安全模式')
+           1466 BUILD_LIST               4
+           1468 STORE_NAME             103 (buttons)
+
+541        1470 LOAD_CONST             108 ('#FFB6C1')
+           1472 LOAD_CONST             109 ('#98FB98')
+           1474 LOAD_CONST             110 ('#87CEFA')
+           1476 LOAD_CONST             111 ('#FFD700')
+           1478 BUILD_LIST               4
+           1480 STORE_NAME             104 (button_colors)
+
+544        1482 LOAD_CONST             112 (<code object show_function_info at 0x000002076CF62D40, file "Kaspersky.py", line 544>)
+           1484 LOAD_CONST             113 ('show_function_info')
+           1486 MAKE_FUNCTION            0
+           1488 STORE_NAME             105 (show_function_info)
+
+548        1490 LOAD_CONST             114 (<code object hide_function_info at 0x000002076CF62BE0, file "Kaspersky.py", line 548>)
+           1492 LOAD_CONST             115 ('hide_function_info')
+           1494 MAKE_FUNCTION            0
+           1496 STORE_NAME             106 (hide_function_info)
+
+553        1498 LOAD_CONST             116 ('重置卡巴斯基家庭版【暂时只支持21.14以前的版本】及企业版【KES】的试用激活')
+
+554        1500 LOAD_CONST             117 ('导出备份卡巴斯基的许可授权文件')
+
+555        1502 LOAD_CONST             118 ('导入许可授权文件激活卡巴斯基软件')
+
+556        1504 LOAD_CONST             119 ('快速重启计算机进安全模式')
+
+552        1506 BUILD_LIST               4
+           1508 STORE_NAME             107 (function_info)
+
+559        1510 LOAD_NAME              108 (enumerate)
+           1512 LOAD_NAME              103 (buttons)
+           1514 CALL_FUNCTION            1
+           1516 GET_ITER
+        >> 1518 FOR_ITER               240 (to 1760)
+           1520 UNPACK_SEQUENCE          2
+           1522 STORE_NAME             102 (i)
+           1524 STORE_NAME             109 (btn_text)
+
+560        1526 LOAD_NAME              109 (btn_text)
+           1528 LOAD_CONST             104 ('重置激活')
+           1530 COMPARE_OP               2 (==)
+           1532 EXTENDED_ARG             6
+           1534 POP_JUMP_IF_FALSE     1562
+
+561        1536 LOAD_NAME                2 (ttk)
+           1538 LOAD_ATTR              110 (Button)
+           1540 LOAD_NAME              100 (button_frame)
+           1542 LOAD_NAME              109 (btn_text)
+           1544 LOAD_NAME              102 (i)
+           1546 FORMAT_VALUE             0
+           1548 LOAD_CONST             120 ('.TButton')
+           1550 BUILD_STRING             2
+           1552 LOAD_NAME               25 (reset_activation)
+           1554 LOAD_CONST             121 (('text', 'style', 'command'))
+           1556 CALL_FUNCTION_KW         4
+           1558 STORE_NAME             111 (btn)
+           1560 JUMP_FORWARD           106 (to 1668)
+
+562     >> 1562 LOAD_NAME              109 (btn_text)
+           1564 LOAD_CONST             105 ('导出授权')
+           1566 COMPARE_OP               2 (==)
+           1568 EXTENDED_ARG             6
+           1570 POP_JUMP_IF_FALSE     1598
+
+563        1572 LOAD_NAME                2 (ttk)
+           1574 LOAD_ATTR              110 (Button)
+           1576 LOAD_NAME              100 (button_frame)
+           1578 LOAD_NAME              109 (btn_text)
+           1580 LOAD_NAME              102 (i)
+           1582 FORMAT_VALUE             0
+           1584 LOAD_CONST             120 ('.TButton')
+           1586 BUILD_STRING             2
+           1588 LOAD_NAME               30 (export_license)
+           1590 LOAD_CONST             121 (('text', 'style', 'command'))
+           1592 CALL_FUNCTION_KW         4
+           1594 STORE_NAME             111 (btn)
+           1596 JUMP_FORWARD            70 (to 1668)
+
+564     >> 1598 LOAD_NAME              109 (btn_text)
+           1600 LOAD_CONST             106 ('导入授权')
+           1602 COMPARE_OP               2 (==)
+           1604 EXTENDED_ARG             6
+           1606 POP_JUMP_IF_FALSE     1634
+
+565        1608 LOAD_NAME                2 (ttk)
+           1610 LOAD_ATTR              110 (Button)
+           1612 LOAD_NAME              100 (button_frame)
+           1614 LOAD_NAME              109 (btn_text)
+           1616 LOAD_NAME              102 (i)
+           1618 FORMAT_VALUE             0
+           1620 LOAD_CONST             120 ('.TButton')
+           1622 BUILD_STRING             2
+           1624 LOAD_NAME               32 (import_license)
+           1626 LOAD_CONST             121 (('text', 'style', 'command'))
+           1628 CALL_FUNCTION_KW         4
+           1630 STORE_NAME             111 (btn)
+           1632 JUMP_FORWARD            34 (to 1668)
+
+566     >> 1634 LOAD_NAME              109 (btn_text)
+           1636 LOAD_CONST             107 ('安全模式')
+           1638 COMPARE_OP               2 (==)
+           1640 EXTENDED_ARG             6
+           1642 POP_JUMP_IF_FALSE     1668
+
+567        1644 LOAD_NAME                2 (ttk)
+           1646 LOAD_ATTR              110 (Button)
+           1648 LOAD_NAME              100 (button_frame)
+           1650 LOAD_NAME              109 (btn_text)
+           1652 LOAD_NAME              102 (i)
+           1654 FORMAT_VALUE             0
+           1656 LOAD_CONST             120 ('.TButton')
+           1658 BUILD_STRING             2
+           1660 LOAD_NAME               36 (safe_mode_reboot)
+           1662 LOAD_CONST             121 (('text', 'style', 'command'))
+           1664 CALL_FUNCTION_KW         4
+           1666 STORE_NAME             111 (btn)
+
+568     >> 1668 LOAD_NAME                2 (ttk)
+           1670 LOAD_METHOD             55 (Style)
+           1672 CALL_METHOD              0
+           1674 STORE_NAME              56 (style)
+
+569        1676 LOAD_NAME               56 (style)
+           1678 LOAD_ATTR               68 (configure)
+           1680 LOAD_NAME              102 (i)
+           1682 FORMAT_VALUE             0
+           1684 LOAD_CONST             120 ('.TButton')
+           1686 BUILD_STRING             2
+           1688 LOAD_NAME              104 (button_colors)
+           1690 LOAD_NAME              102 (i)
+           1692 BINARY_SUBSCR
+           1694 LOAD_CONST              72 (('Segoe UI', 12))
+           1696 LOAD_CONST             122 (('background', 'font'))
+           1698 CALL_FUNCTION_KW         3
+           1700 POP_TOP
+
+570        1702 LOAD_NAME              111 (btn)
+           1704 LOAD_ATTR               73 (grid)
+           1706 LOAD_CONST               0 (0)
+           1708 LOAD_NAME              102 (i)
+           1710 LOAD_CONST              63 (10)
+           1712 LOAD_CONST              62 ('nsew')
+           1714 LOAD_CONST             123 (('row', 'column', 'padx', 'sticky'))
+           1716 CALL_FUNCTION_KW         4
+           1718 POP_TOP
+
+571        1720 LOAD_NAME              111 (btn)
+           1722 LOAD_METHOD            112 (bind)
+           1724 LOAD_CONST             124 ('<Enter>')
+           1726 LOAD_NAME              107 (function_info)
+           1728 LOAD_NAME              102 (i)
+           1730 BINARY_SUBSCR
+           1732 BUILD_TUPLE              1
+           1734 LOAD_CONST             125 (<code object <lambda> at 0x000002076CF62B30, file "Kaspersky.py", line 571>)
+           1736 LOAD_CONST             126 ('<lambda>')
+           1738 MAKE_FUNCTION            1 (defaults)
+           1740 CALL_METHOD              2
+           1742 POP_TOP
+
+572        1744 LOAD_NAME              111 (btn)
+           1746 LOAD_METHOD            112 (bind)
+           1748 LOAD_CONST             127 ('<Leave>')
+           1750 LOAD_NAME              106 (hide_function_info)
+           1752 CALL_METHOD              2
+           1754 POP_TOP
+           1756 EXTENDED_ARG             5
+           1758 JUMP_ABSOLUTE         1518
+
+575     >> 1760 LOAD_CONST             128 ('关闭自保')
+           1762 LOAD_CONST             129 ('版本更新')
+           1764 LOAD_CONST             130 ('获取补丁')
+           1766 LOAD_CONST             131 ('桌面保护')
+           1768 BUILD_LIST               4
+           1770 STORE_NAME             113 (new_buttons)
+
+576        1772 LOAD_CONST             132 ('#FFA07A')
+           1774 LOAD_CONST             133 ('#7FFFD4')
+           1776 LOAD_CONST             134 ('#DDA0DD')
+           1778 LOAD_CONST             135 ('#FFFF00')
+           1780 BUILD_LIST               4
+           1782 STORE_NAME             114 (new_button_colors)
+
+578        1784 LOAD_CONST             136 ('关闭卡巴斯基的自我保护功能，在特殊无法关闭情况下使用，需进安全模式下操作')
+
+579        1786 LOAD_CONST             137 ('禁止卡巴斯基家庭版软件版本自动更新.')
+
+580        1788 LOAD_CONST             138 ('提前获取卡巴斯基家庭版软件的最新补丁')
+
+581        1790 LOAD_CONST             139 ('关闭卡巴斯基家庭版软件的桌面请求确认保护提示')
+
+577        1792 BUILD_LIST               4
+           1794 STORE_NAME             115 (new_function_info)
+
+584        1796 LOAD_NAME                1 (tk)
+           1798 LOAD_ATTR               71 (Frame)
+           1800 LOAD_NAME               40 (root)
+           1802 LOAD_CONST              57 ('#f0f0f0')
+           1804 LOAD_CONST              58 (('bg',))
+           1806 CALL_FUNCTION_KW         2
+           1808 STORE_NAME             116 (new_button_frame)
+
+585        1810 LOAD_NAME              116 (new_button_frame)
+           1812 LOAD_ATTR               73 (grid)
+           1814 LOAD_CONST              82 (3)
+           1816 LOAD_CONST               0 (0)
+           1818 LOAD_CONST              54 (2)
+           1820 LOAD_CONST              62 ('nsew')
+           1822 LOAD_CONST              63 (10)
+           1824 LOAD_CONST              64 (('row', 'column', 'columnspan', 'sticky', 'pady'))
+           1826 CALL_FUNCTION_KW         5
+           1828 POP_TOP
+
+586        1830 LOAD_NAME              101 (range)
+           1832 LOAD_CONST              60 (4)
+           1834 CALL_FUNCTION            1
+           1836 GET_ITER
+        >> 1838 FOR_ITER                20 (to 1860)
+           1840 STORE_NAME             102 (i)
+
+587        1842 LOAD_NAME              116 (new_button_frame)
+           1844 LOAD_ATTR               69 (columnconfigure)
+           1846 LOAD_NAME              102 (i)
+           1848 LOAD_CONST               4 (1)
+           1850 LOAD_CONST              59 (('weight',))
+           1852 CALL_FUNCTION_KW         2
+           1854 POP_TOP
+           1856 EXTENDED_ARG             7
+           1858 JUMP_ABSOLUTE         1838
+
+589     >> 1860 LOAD_NAME              108 (enumerate)
+           1862 LOAD_NAME              113 (new_buttons)
+           1864 CALL_FUNCTION            1
+           1866 GET_ITER
+        >> 1868 EXTENDED_ARG             1
+           1870 FOR_ITER               276 (to 2148)
+           1872 UNPACK_SEQUENCE          2
+           1874 STORE_NAME             102 (i)
+           1876 STORE_NAME             109 (btn_text)
+
+590        1878 LOAD_NAME              109 (btn_text)
+           1880 LOAD_CONST             129 ('版本更新')
+           1882 COMPARE_OP               2 (==)
+           1884 EXTENDED_ARG             7
+           1886 POP_JUMP_IF_FALSE     1916
+
+591        1888 LOAD_NAME                2 (ttk)
+           1890 LOAD_ATTR              110 (Button)
+           1892 LOAD_NAME              116 (new_button_frame)
+           1894 LOAD_NAME              109 (btn_text)
+           1896 LOAD_CONST             140 ('new_')
+           1898 LOAD_NAME              102 (i)
+           1900 FORMAT_VALUE             0
+           1902 LOAD_CONST             120 ('.TButton')
+           1904 BUILD_STRING             3
+           1906 LOAD_NAME               37 (version_update)
+           1908 LOAD_CONST             121 (('text', 'style', 'command'))
+           1910 CALL_FUNCTION_KW         4
+           1912 STORE_NAME             111 (btn)
+           1914 JUMP_FORWARD           138 (to 2054)
+
+592     >> 1916 LOAD_NAME              109 (btn_text)
+           1918 LOAD_CONST             130 ('获取补丁')
+           1920 COMPARE_OP               2 (==)
+           1922 EXTENDED_ARG             7
+           1924 POP_JUMP_IF_FALSE     1954
+
+593        1926 LOAD_NAME                2 (ttk)
+           1928 LOAD_ATTR              110 (Button)
+           1930 LOAD_NAME              116 (new_button_frame)
+           1932 LOAD_NAME              109 (btn_text)
+           1934 LOAD_CONST             140 ('new_')
+           1936 LOAD_NAME              102 (i)
+           1938 FORMAT_VALUE             0
+           1940 LOAD_CONST             120 ('.TButton')
+           1942 BUILD_STRING             3
+           1944 LOAD_NAME               27 (get_patch)
+           1946 LOAD_CONST             121 (('text', 'style', 'command'))
+           1948 CALL_FUNCTION_KW         4
+           1950 STORE_NAME             111 (btn)
+           1952 JUMP_FORWARD           100 (to 2054)
+
+594     >> 1954 LOAD_NAME              109 (btn_text)
+           1956 LOAD_CONST             131 ('桌面保护')
+           1958 COMPARE_OP               2 (==)
+           1960 EXTENDED_ARG             7
+           1962 POP_JUMP_IF_FALSE     1992
+
+595        1964 LOAD_NAME                2 (ttk)
+           1966 LOAD_ATTR              110 (Button)
+           1968 LOAD_NAME              116 (new_button_frame)
+           1970 LOAD_NAME              109 (btn_text)
+           1972 LOAD_CONST             140 ('new_')
+           1974 LOAD_NAME              102 (i)
+           1976 FORMAT_VALUE             0
+           1978 LOAD_CONST             120 ('.TButton')
+           1980 BUILD_STRING             3
+           1982 LOAD_NAME               28 (desktop_protection)
+           1984 LOAD_CONST             121 (('text', 'style', 'command'))
+           1986 CALL_FUNCTION_KW         4
+           1988 STORE_NAME             111 (btn)
+           1990 JUMP_FORWARD            62 (to 2054)
+
+596     >> 1992 LOAD_NAME              109 (btn_text)
+           1994 LOAD_CONST             128 ('关闭自保')
+           1996 COMPARE_OP               2 (==)
+           1998 EXTENDED_ARG             7
+           2000 POP_JUMP_IF_FALSE     2030
+
+597        2002 LOAD_NAME                2 (ttk)
+           2004 LOAD_ATTR              110 (Button)
+           2006 LOAD_NAME              116 (new_button_frame)
+           2008 LOAD_NAME              109 (btn_text)
+           2010 LOAD_CONST             140 ('new_')
+           2012 LOAD_NAME              102 (i)
+           2014 FORMAT_VALUE             0
+           2016 LOAD_CONST             120 ('.TButton')
+           2018 BUILD_STRING             3
+           2020 LOAD_NAME               35 (disable_self_protection)
+           2022 LOAD_CONST             121 (('text', 'style', 'command'))
+           2024 CALL_FUNCTION_KW         4
+           2026 STORE_NAME             111 (btn)
+           2028 JUMP_FORWARD            24 (to 2054)
+
+599     >> 2030 LOAD_NAME                2 (ttk)
+           2032 LOAD_ATTR              110 (Button)
+           2034 LOAD_NAME              116 (new_button_frame)
+           2036 LOAD_NAME              109 (btn_text)
+           2038 LOAD_CONST             140 ('new_')
+           2040 LOAD_NAME              102 (i)
+           2042 FORMAT_VALUE             0
+           2044 LOAD_CONST             120 ('.TButton')
+           2046 BUILD_STRING             3
+           2048 LOAD_CONST             141 (('text', 'style'))
+           2050 CALL_FUNCTION_KW         3
+           2052 STORE_NAME             111 (btn)
+
+600     >> 2054 LOAD_NAME                2 (ttk)
+           2056 LOAD_METHOD             55 (Style)
+           2058 CALL_METHOD              0
+           2060 STORE_NAME              56 (style)
+
+601        2062 LOAD_NAME               56 (style)
+           2064 LOAD_ATTR               68 (configure)
+           2066 LOAD_CONST             140 ('new_')
+           2068 LOAD_NAME              102 (i)
+           2070 FORMAT_VALUE             0
+           2072 LOAD_CONST             120 ('.TButton')
+           2074 BUILD_STRING             3
+           2076 LOAD_NAME              114 (new_button_colors)
+           2078 LOAD_NAME              102 (i)
+           2080 BINARY_SUBSCR
+           2082 LOAD_CONST              72 (('Segoe UI', 12))
+           2084 LOAD_CONST             122 (('background', 'font'))
+           2086 CALL_FUNCTION_KW         3
+           2088 POP_TOP
+
+602        2090 LOAD_NAME              111 (btn)
+           2092 LOAD_ATTR               73 (grid)
+           2094 LOAD_CONST               0 (0)
+           2096 LOAD_NAME              102 (i)
+           2098 LOAD_CONST              63 (10)
+           2100 LOAD_CONST              62 ('nsew')
+           2102 LOAD_CONST             123 (('row', 'column', 'padx', 'sticky'))
+           2104 CALL_FUNCTION_KW         4
+           2106 POP_TOP
+
+603        2108 LOAD_NAME              111 (btn)
+           2110 LOAD_METHOD            112 (bind)
+           2112 LOAD_CONST             124 ('<Enter>')
+           2114 LOAD_NAME              115 (new_function_info)
+           2116 LOAD_NAME              102 (i)
+           2118 BINARY_SUBSCR
+           2120 BUILD_TUPLE              1
+           2122 LOAD_CONST             142 (<code object <lambda> at 0x000002076CF62A80, file "Kaspersky.py", line 603>)
+           2124 LOAD_CONST             126 ('<lambda>')
+           2126 MAKE_FUNCTION            1 (defaults)
+           2128 CALL_METHOD              2
+           2130 POP_TOP
+
+604        2132 LOAD_NAME              111 (btn)
+           2134 LOAD_METHOD            112 (bind)
+           2136 LOAD_CONST             127 ('<Leave>')
+           2138 LOAD_NAME              106 (hide_function_info)
+           2140 CALL_METHOD              2
+           2142 POP_TOP
+           2144 EXTENDED_ARG             7
+           2146 JUMP_ABSOLUTE         1868
+
+607     >> 2148 LOAD_NAME                1 (tk)
+           2150 LOAD_ATTR               71 (Frame)
+           2152 LOAD_NAME               40 (root)
+           2154 LOAD_CONST              57 ('#f0f0f0')
+           2156 LOAD_CONST               4 (1)
+           2158 LOAD_NAME                1 (tk)
+           2160 LOAD_ATTR              117 (SUNKEN)
+           2162 LOAD_CONST             143 (('bg', 'bd', 'relief'))
+           2164 CALL_FUNCTION_KW         4
+           2166 STORE_NAME             118 (status_frame)
+
+608        2168 LOAD_NAME              118 (status_frame)
+           2170 LOAD_ATTR               73 (grid)
+           2172 LOAD_CONST              60 (4)
+           2174 LOAD_CONST               0 (0)
+           2176 LOAD_CONST              54 (2)
+           2178 LOAD_CONST              62 ('nsew')
+           2180 LOAD_CONST             144 ((10, 0))
+           2182 LOAD_CONST              64 (('row', 'column', 'columnspan', 'sticky', 'pady'))
+           2184 CALL_FUNCTION_KW         5
+           2186 POP_TOP
+
+609        2188 LOAD_NAME                1 (tk)
+           2190 LOAD_ATTR               74 (Label)
+           2192 LOAD_NAME              118 (status_frame)
+           2194 LOAD_CONST             145 ('就绪')
+           2196 LOAD_CONST              72 (('Segoe UI', 12))
+           2198 LOAD_CONST              94 ('green')
+           2200 LOAD_CONST              57 ('#f0f0f0')
+           2202 LOAD_CONST              79 ('w')
+           2204 LOAD_CONST             146 (('text', 'font', 'fg', 'bg', 'anchor'))
+           2206 CALL_FUNCTION_KW         6
+           2208 STORE_NAME             119 (status_label)
+
+610        2210 LOAD_NAME              119 (status_label)
+           2212 LOAD_ATTR               76 (pack)
+           2214 LOAD_CONST             147 ((5, 5))
+           2216 LOAD_CONST              63 (10)
+           2218 LOAD_NAME                1 (tk)
+           2220 LOAD_ATTR              120 (BOTH)
+           2222 LOAD_CONST             148 (True)
+           2224 LOAD_CONST             149 (('pady', 'padx', 'fill', 'expand'))
+           2226 CALL_FUNCTION_KW         4
+           2228 POP_TOP
+
+612        2230 LOAD_NAME               79 (version_key)
+           2232 EXTENDED_ARG             8
+           2234 POP_JUMP_IF_TRUE      2250
+
+613        2236 LOAD_NAME              119 (status_label)
+           2238 LOAD_ATTR               87 (config)
+           2240 LOAD_NAME               86 (status_text)
+           2242 LOAD_CONST              85 ('red')
+           2244 LOAD_CONST              86 (('text', 'fg'))
+           2246 CALL_FUNCTION_KW         2
+           2248 POP_TOP
+
+616     >> 2250 LOAD_NAME               40 (root)
+           2252 LOAD_METHOD             88 (after)
+           2254 LOAD_CONST             150 (1000)
+           2256 LOAD_NAME               38 (update_status)
+           2258 CALL_METHOD              2
+           2260 POP_TOP
+
+617        2262 LOAD_NAME               40 (root)
+           2264 LOAD_METHOD            121 (deiconify)
+           2266 CALL_METHOD              0
+           2268 POP_TOP
+
+618        2270 LOAD_NAME               40 (root)
+           2272 LOAD_METHOD            122 (mainloop)
+           2274 CALL_METHOD              0
+           2276 POP_TOP
+           2278 LOAD_CONST               1 (None)
+           2280 RETURN_VALUE
+
+Disassembly of <code object get_kaspersky_version at 0x000002076CDC7870, file "Kaspersky.py", line 18>:
+ 21           0 LOAD_CONST               1 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+
+ 22           2 LOAD_CONST               2 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+
+ 20           4 BUILD_LIST               2
+              6 STORE_FAST               0 (possible_paths)
+
+ 24           8 LOAD_FAST                0 (possible_paths)
+             10 GET_ITER
+        >>   12 FOR_ITER               166 (to 180)
+             14 STORE_FAST               1 (path)
+
+ 25          16 SETUP_FINALLY          140 (to 158)
+
+ 26          18 LOAD_GLOBAL              0 (winreg)
+             20 LOAD_METHOD              1 (OpenKey)
+             22 LOAD_GLOBAL              0 (winreg)
+             24 LOAD_ATTR                2 (HKEY_LOCAL_MACHINE)
+             26 LOAD_FAST                1 (path)
+             28 CALL_METHOD              2
+             30 STORE_FAST               2 (key)
+
+ 27          32 LOAD_GLOBAL              3 (range)
+             34 LOAD_CONST               3 (100)
+             36 CALL_FUNCTION            1
+             38 GET_ITER
+        >>   40 FOR_ITER               112 (to 154)
+             42 STORE_FAST               3 (i)
+
+ 28          44 SETUP_FINALLY           80 (to 126)
+
+ 29          46 LOAD_GLOBAL              0 (winreg)
+             48 LOAD_METHOD              4 (EnumKey)
+             50 LOAD_FAST                2 (key)
+             52 LOAD_FAST                3 (i)
+             54 CALL_METHOD              2
+             56 STORE_FAST               4 (subkey)
+
+ 30          58 LOAD_FAST                4 (subkey)
+             60 LOAD_METHOD              5 (startswith)
+             62 LOAD_CONST               4 ('AVP')
+             64 CALL_METHOD              1
+             66 POP_JUMP_IF_TRUE        78
+             68 LOAD_FAST                4 (subkey)
+             70 LOAD_METHOD              5 (startswith)
+             72 LOAD_CONST               5 ('KES')
+             74 CALL_METHOD              1
+             76 POP_JUMP_IF_FALSE      122
+
+ 31     >>   78 LOAD_GLOBAL              6 (len)
+             80 LOAD_FAST                4 (subkey)
+             82 LOAD_METHOD              7 (split)
+             84 LOAD_CONST               6 ('.')
+             86 CALL_METHOD              1
+             88 CALL_FUNCTION            1
+             90 LOAD_CONST               7 (1)
+             92 COMPARE_OP               4 (>)
+             94 POP_JUMP_IF_TRUE       106
+             96 LOAD_FAST                4 (subkey)
+             98 LOAD_METHOD              5 (startswith)
+            100 LOAD_CONST               4 ('AVP')
+            102 CALL_METHOD              1
+            104 POP_JUMP_IF_FALSE      122
+
+ 32     >>  106 LOAD_FAST                4 (subkey)
+            108 POP_BLOCK
+            110 ROT_TWO
+            112 POP_TOP
+            114 POP_BLOCK
+            116 ROT_TWO
+            118 POP_TOP
+            120 RETURN_VALUE
+        >>  122 POP_BLOCK
+            124 JUMP_ABSOLUTE           40
+
+ 33     >>  126 DUP_TOP
+            128 LOAD_GLOBAL              8 (OSError)
+            130 COMPARE_OP              10 (exception match)
+            132 POP_JUMP_IF_FALSE      150
+            134 POP_TOP
+            136 POP_TOP
+            138 POP_TOP
+
+ 34         140 POP_EXCEPT
+            142 POP_TOP
+            144 JUMP_ABSOLUTE          154
+            146 POP_EXCEPT
+            148 JUMP_ABSOLUTE           40
+        >>  150 END_FINALLY
+            152 JUMP_ABSOLUTE           40
+        >>  154 POP_BLOCK
+            156 JUMP_ABSOLUTE           12
+
+ 35     >>  158 DUP_TOP
+            160 LOAD_GLOBAL              8 (OSError)
+            162 COMPARE_OP              10 (exception match)
+            164 POP_JUMP_IF_FALSE      176
+            166 POP_TOP
+            168 POP_TOP
+            170 POP_TOP
+
+ 36         172 POP_EXCEPT
+            174 JUMP_ABSOLUTE           12
+        >>  176 END_FINALLY
+            178 JUMP_ABSOLUTE           12
+
+ 37     >>  180 LOAD_CONST               8 (None)
+            182 RETURN_VALUE
+
+Disassembly of <code object get_registry_value at 0x000002076CDD0EA0, file "Kaspersky.py", line 40>:
+ 42           0 SETUP_FINALLY           92 (to 94)
+
+ 43           2 LOAD_GLOBAL              0 (winreg)
+              4 LOAD_METHOD              1 (OpenKey)
+              6 LOAD_GLOBAL              0 (winreg)
+              8 LOAD_ATTR                2 (HKEY_LOCAL_MACHINE)
+             10 LOAD_FAST                0 (base_path)
+             12 CALL_METHOD              2
+             14 SETUP_WITH              68 (to 84)
+             16 STORE_FAST               3 (base_key)
+
+ 44          18 LOAD_GLOBAL              0 (winreg)
+             20 LOAD_METHOD              1 (OpenKey)
+             22 LOAD_FAST                3 (base_key)
+             24 LOAD_FAST                1 (subkey_path)
+             26 CALL_METHOD              2
+             28 SETUP_WITH              44 (to 74)
+             30 STORE_FAST               4 (subkey)
+
+ 45          32 LOAD_GLOBAL              0 (winreg)
+             34 LOAD_METHOD              3 (QueryValueEx)
+             36 LOAD_FAST                4 (subkey)
+             38 LOAD_FAST                2 (value_name)
+             40 CALL_METHOD              2
+             42 LOAD_CONST               1 (0)
+             44 BINARY_SUBSCR
+             46 POP_BLOCK
+             48 ROT_TWO
+             50 BEGIN_FINALLY
+             52 WITH_CLEANUP_START
+             54 WITH_CLEANUP_FINISH
+             56 POP_FINALLY              0
+             58 POP_BLOCK
+             60 ROT_TWO
+             62 BEGIN_FINALLY
+             64 WITH_CLEANUP_START
+             66 WITH_CLEANUP_FINISH
+             68 POP_FINALLY              0
+             70 POP_BLOCK
+             72 RETURN_VALUE
+        >>   74 WITH_CLEANUP_START
+             76 WITH_CLEANUP_FINISH
+             78 END_FINALLY
+             80 POP_BLOCK
+             82 BEGIN_FINALLY
+        >>   84 WITH_CLEANUP_START
+             86 WITH_CLEANUP_FINISH
+             88 END_FINALLY
+             90 POP_BLOCK
+             92 JUMP_FORWARD            26 (to 120)
+
+ 46     >>   94 DUP_TOP
+             96 LOAD_GLOBAL              4 (FileNotFoundError)
+             98 LOAD_GLOBAL              5 (OSError)
+            100 BUILD_TUPLE              2
+            102 COMPARE_OP              10 (exception match)
+            104 POP_JUMP_IF_FALSE      118
+            106 POP_TOP
+            108 POP_TOP
+            110 POP_TOP
+
+ 47         112 POP_EXCEPT
+            114 LOAD_CONST               2 (None)
+            116 RETURN_VALUE
+        >>  118 END_FINALLY
+        >>  120 LOAD_CONST               2 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object check_process_running at 0x000002076CDD0F50, file "Kaspersky.py", line 50>:
+ 52           0 LOAD_GLOBAL              0 (psutil)
+              2 LOAD_METHOD              1 (process_iter)
+              4 LOAD_CONST               1 ('name')
+              6 BUILD_LIST               1
+              8 CALL_METHOD              1
+             10 GET_ITER
+        >>   12 FOR_ITER                24 (to 38)
+             14 STORE_FAST               1 (proc)
+
+ 53          16 LOAD_FAST                1 (proc)
+             18 LOAD_ATTR                2 (info)
+             20 LOAD_CONST               1 ('name')
+             22 BINARY_SUBSCR
+             24 LOAD_FAST                0 (process_name)
+             26 COMPARE_OP               2 (==)
+             28 POP_JUMP_IF_FALSE       12
+
+ 54          30 POP_TOP
+             32 LOAD_CONST               2 (True)
+             34 RETURN_VALUE
+             36 JUMP_ABSOLUTE           12
+
+ 55     >>   38 LOAD_CONST               3 (False)
+             40 RETURN_VALUE
+
+Disassembly of <code object exit_app at 0x000002076CDD62F0, file "Kaspersky.py", line 58>:
+ 60           0 LOAD_GLOBAL              0 (root)
+              2 LOAD_METHOD              1 (destroy)
+              4 CALL_METHOD              0
+              6 POP_TOP
+
+ 61           8 LOAD_GLOBAL              2 (sys)
+             10 LOAD_METHOD              3 (exit)
+             12 CALL_METHOD              0
+             14 POP_TOP
+             16 LOAD_CONST               1 (None)
+             18 RETURN_VALUE
+
+Disassembly of <code object delete_files at 0x000002076CDD6030, file "Kaspersky.py", line 64>:
+ 65           0 LOAD_GLOBAL              0 (glob)
+              2 LOAD_METHOD              0 (glob)
+              4 LOAD_FAST                0 (path_pattern)
+              6 CALL_METHOD              1
+              8 GET_ITER
+        >>   10 FOR_ITER                86 (to 98)
+             12 STORE_FAST               1 (path)
+
+ 66          14 LOAD_GLOBAL              1 (os)
+             16 LOAD_ATTR                2 (path)
+             18 LOAD_METHOD              3 (isfile)
+             20 LOAD_FAST                1 (path)
+             22 CALL_METHOD              1
+             24 POP_JUMP_IF_FALSE       10
+
+ 67          26 SETUP_FINALLY           14 (to 42)
+
+ 68          28 LOAD_GLOBAL              1 (os)
+             30 LOAD_METHOD              4 (remove)
+             32 LOAD_FAST                1 (path)
+             34 CALL_METHOD              1
+             36 POP_TOP
+             38 POP_BLOCK
+             40 JUMP_ABSOLUTE           10
+
+ 69     >>   42 DUP_TOP
+             44 LOAD_GLOBAL              5 (Exception)
+             46 COMPARE_OP              10 (exception match)
+             48 POP_JUMP_IF_FALSE       94
+             50 POP_TOP
+             52 STORE_FAST               2 (e)
+             54 POP_TOP
+             56 SETUP_FINALLY           24 (to 82)
+
+ 70          58 LOAD_GLOBAL              6 (print)
+             60 LOAD_CONST               1 ('删除文件 ')
+             62 LOAD_FAST                1 (path)
+             64 FORMAT_VALUE             0
+             66 LOAD_CONST               2 (' 时出错: ')
+             68 LOAD_FAST                2 (e)
+             70 FORMAT_VALUE             0
+             72 BUILD_STRING             4
+             74 CALL_FUNCTION            1
+             76 POP_TOP
+             78 POP_BLOCK
+             80 BEGIN_FINALLY
+        >>   82 LOAD_CONST               0 (None)
+             84 STORE_FAST               2 (e)
+             86 DELETE_FAST              2 (e)
+             88 END_FINALLY
+             90 POP_EXCEPT
+             92 JUMP_ABSOLUTE           10
+        >>   94 END_FINALLY
+             96 JUMP_ABSOLUTE           10
+        >>   98 LOAD_CONST               0 (None)
+            100 RETURN_VALUE
+
+Disassembly of <code object reset_activation at 0x000002076CDD60E0, file "Kaspersky.py", line 74>:
+ 75           0 LOAD_GLOBAL              0 (check_conditions)
+              2 CALL_FUNCTION            0
+              4 EXTENDED_ARG             3
+              6 POP_JUMP_IF_FALSE      780
+
+ 76           8 LOAD_GLOBAL              1 (messagebox)
+             10 LOAD_METHOD              2 (askyesno)
+             12 LOAD_CONST               1 ('确认')
+             14 LOAD_CONST               2 ('是否重置试用，系统将重启生效')
+             16 CALL_METHOD              2
+             18 STORE_FAST               0 (result)
+
+ 77          20 LOAD_FAST                0 (result)
+             22 POP_JUMP_IF_TRUE        28
+
+ 78          24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+ 79     >>   28 LOAD_GLOBAL              3 (get_kaspersky_version)
+             30 CALL_FUNCTION            0
+             32 STORE_FAST               1 (version_key)
+
+ 80          34 LOAD_FAST                1 (version_key)
+             36 POP_JUMP_IF_TRUE        56
+
+ 81          38 LOAD_GLOBAL              4 (status_label)
+             40 LOAD_ATTR                5 (config)
+             42 LOAD_CONST               3 ('未检测到卡巴斯基软件，无法重置激活')
+             44 LOAD_CONST               4 ('red')
+             46 LOAD_CONST               5 (('text', 'fg'))
+             48 CALL_FUNCTION_KW         2
+             50 POP_TOP
+
+ 82          52 LOAD_CONST               0 (None)
+             54 RETURN_VALUE
+
+ 83     >>   56 LOAD_FAST                1 (version_key)
+             58 LOAD_METHOD              6 (startswith)
+             60 LOAD_CONST               6 ('AVP')
+             62 CALL_METHOD              1
+             64 EXTENDED_ARG             1
+             66 POP_JUMP_IF_FALSE      304
+
+ 84          68 LOAD_CONST               7 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             70 STORE_FAST               2 (base_path)
+
+ 85          72 LOAD_CONST               8 ('SOFTWARE\\WOW6432Node')
+             74 STORE_FAST               3 (software)
+
+ 86          76 LOAD_FAST                1 (version_key)
+             78 STORE_FAST               4 (avp)
+
+ 88          80 LOAD_GLOBAL              7 (delete_files)
+             82 LOAD_GLOBAL              8 (os)
+             84 LOAD_ATTR                9 (path)
+             86 LOAD_METHOD             10 (join)
+             88 LOAD_GLOBAL              8 (os)
+             90 LOAD_ATTR               11 (environ)
+             92 LOAD_CONST               9 ('ProgramData')
+             94 BINARY_SUBSCR
+             96 LOAD_CONST              10 ('Kaspersky Lab\\')
+             98 LOAD_FAST                4 (avp)
+            100 FORMAT_VALUE             0
+            102 LOAD_CONST              11 ('\\Data\\*.bin')
+            104 BUILD_STRING             3
+            106 CALL_METHOD              2
+            108 CALL_FUNCTION            1
+            110 POP_TOP
+
+ 89         112 LOAD_GLOBAL              7 (delete_files)
+            114 LOAD_GLOBAL              8 (os)
+            116 LOAD_ATTR                9 (path)
+            118 LOAD_METHOD             10 (join)
+            120 LOAD_GLOBAL              8 (os)
+            122 LOAD_ATTR               11 (environ)
+            124 LOAD_CONST               9 ('ProgramData')
+            126 BINARY_SUBSCR
+            128 LOAD_CONST              10 ('Kaspersky Lab\\')
+            130 LOAD_FAST                4 (avp)
+            132 FORMAT_VALUE             0
+            134 LOAD_CONST              12 ('\\Data\\cat_engine*')
+            136 BUILD_STRING             3
+            138 CALL_METHOD              2
+            140 CALL_FUNCTION            1
+            142 POP_TOP
+
+ 90         144 LOAD_GLOBAL              7 (delete_files)
+            146 LOAD_GLOBAL              8 (os)
+            148 LOAD_ATTR                9 (path)
+            150 LOAD_METHOD             10 (join)
+            152 LOAD_GLOBAL              8 (os)
+            154 LOAD_ATTR               11 (environ)
+            156 LOAD_CONST               9 ('ProgramData')
+            158 BINARY_SUBSCR
+            160 LOAD_CONST              10 ('Kaspersky Lab\\')
+            162 LOAD_FAST                4 (avp)
+            164 FORMAT_VALUE             0
+            166 LOAD_CONST              13 ('\\Data\\certdb_v2.*.idx')
+            168 BUILD_STRING             3
+            170 CALL_METHOD              2
+            172 CALL_FUNCTION            1
+            174 POP_TOP
+
+ 93         176 LOAD_CONST              14 ('reg delete HKLM\\')
+            178 LOAD_FAST                3 (software)
+            180 FORMAT_VALUE             0
+            182 LOAD_CONST              15 ('\\KasperskyLab\\')
+            184 LOAD_FAST                4 (avp)
+            186 FORMAT_VALUE             0
+            188 LOAD_CONST              16 ('\\Data\\LicCache /f')
+            190 BUILD_STRING             5
+
+ 94         192 LOAD_CONST              14 ('reg delete HKLM\\')
+            194 LOAD_FAST                3 (software)
+            196 FORMAT_VALUE             0
+            198 LOAD_CONST              15 ('\\KasperskyLab\\')
+            200 LOAD_FAST                4 (avp)
+            202 FORMAT_VALUE             0
+            204 LOAD_CONST              17 ('\\Data\\LicensingActivationErrorStorageLogic /f')
+            206 BUILD_STRING             5
+
+ 95         208 LOAD_CONST              14 ('reg delete HKLM\\')
+            210 LOAD_FAST                3 (software)
+            212 FORMAT_VALUE             0
+            214 LOAD_CONST              18 ('\\KasperskyLab\\LicStrg /f')
+            216 BUILD_STRING             3
+
+ 96         218 LOAD_CONST              14 ('reg delete HKLM\\')
+            220 LOAD_FAST                3 (software)
+            222 FORMAT_VALUE             0
+            224 LOAD_CONST              15 ('\\KasperskyLab\\')
+            226 LOAD_FAST                4 (avp)
+            228 FORMAT_VALUE             0
+            230 LOAD_CONST              19 ('\\Data\\UPAO /f')
+            232 BUILD_STRING             5
+
+ 97         234 LOAD_CONST              20 ('reg delete HKLM\\SOFTWARE\\Microsoft\\SystemCertificates\\SPC /f')
+
+ 98         236 LOAD_CONST              21 ('reg add HKLM\\')
+            238 LOAD_FAST                3 (software)
+            240 FORMAT_VALUE             0
+            242 LOAD_CONST              15 ('\\KasperskyLab\\')
+            244 LOAD_FAST                4 (avp)
+            246 FORMAT_VALUE             0
+            248 LOAD_CONST              22 ('\\settings /v Ins_InitMode /t REG_DWORD /d 1 /f')
+            250 BUILD_STRING             5
+
+ 99         252 LOAD_CONST              21 ('reg add HKLM\\')
+            254 LOAD_FAST                3 (software)
+            256 FORMAT_VALUE             0
+            258 LOAD_CONST              15 ('\\KasperskyLab\\')
+            260 LOAD_FAST                4 (avp)
+            262 FORMAT_VALUE             0
+            264 LOAD_CONST              23 ('\\Data\\UPAO /v UpaoState /t REG_DWORD /d 1 /f')
+            266 BUILD_STRING             5
+
+100         268 LOAD_CONST              21 ('reg add HKLM\\')
+            270 LOAD_FAST                3 (software)
+            272 FORMAT_VALUE             0
+            274 LOAD_CONST              15 ('\\KasperskyLab\\')
+            276 LOAD_FAST                4 (avp)
+            278 FORMAT_VALUE             0
+            280 LOAD_CONST              24 ('\\environment /v UpaoState /t REG_SZ /d 1 /f')
+            282 BUILD_STRING             5
+
+101         284 LOAD_CONST              21 ('reg add HKLM\\')
+            286 LOAD_FAST                3 (software)
+            288 FORMAT_VALUE             0
+            290 LOAD_CONST              18 ('\\KasperskyLab\\LicStrg /f')
+            292 BUILD_STRING             3
+
+102         294 LOAD_CONST              25 ('shutdown /r /t 2')
+
+ 92         296 BUILD_LIST              10
+            298 STORE_FAST               5 (commands)
+            300 EXTENDED_ARG             1
+            302 JUMP_FORWARD           350 (to 654)
+
+104     >>  304 LOAD_FAST                1 (version_key)
+            306 LOAD_METHOD              6 (startswith)
+            308 LOAD_CONST              26 ('KES')
+            310 CALL_METHOD              1
+            312 EXTENDED_ARG             2
+            314 POP_JUMP_IF_FALSE      654
+
+105         316 LOAD_CONST              27 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+            318 STORE_FAST               2 (base_path)
+
+106         320 LOAD_CONST               8 ('SOFTWARE\\WOW6432Node')
+            322 STORE_FAST               3 (software)
+
+107         324 LOAD_FAST                1 (version_key)
+            326 STORE_FAST               6 (kes)
+
+108         328 LOAD_GLOBAL             12 (get_registry_value)
+
+109         330 LOAD_FAST                2 (base_path)
+
+110         332 LOAD_FAST                6 (kes)
+            334 FORMAT_VALUE             0
+            336 LOAD_CONST              28 ('\\settings')
+            338 BUILD_STRING             2
+
+111         340 LOAD_CONST              29 ('EnableSelfProtection')
+
+108         342 CALL_FUNCTION            3
+            344 STORE_FAST               7 (self_protection_value)
+
+113         346 LOAD_FAST                7 (self_protection_value)
+            348 LOAD_CONST               0 (None)
+            350 COMPARE_OP               8 (is)
+            352 EXTENDED_ARG             1
+            354 POP_JUMP_IF_FALSE      360
+
+114         356 LOAD_CONST              30 (0)
+            358 STORE_FAST               7 (self_protection_value)
+
+115     >>  360 LOAD_GLOBAL              8 (os)
+            362 LOAD_ATTR                9 (path)
+            364 LOAD_METHOD             10 (join)
+            366 LOAD_GLOBAL              8 (os)
+            368 LOAD_ATTR               11 (environ)
+            370 LOAD_CONST               9 ('ProgramData')
+            372 BINARY_SUBSCR
+            374 LOAD_CONST              10 ('Kaspersky Lab\\')
+            376 LOAD_FAST                6 (kes)
+            378 FORMAT_VALUE             0
+            380 LOAD_CONST              31 ('\\Report')
+            382 BUILD_STRING             3
+            384 CALL_METHOD              2
+            386 STORE_FAST               8 (report_folder)
+
+116         388 LOAD_GLOBAL              8 (os)
+            390 LOAD_ATTR                9 (path)
+            392 LOAD_METHOD             10 (join)
+            394 LOAD_GLOBAL              8 (os)
+            396 LOAD_ATTR               11 (environ)
+            398 LOAD_CONST               9 ('ProgramData')
+            400 BINARY_SUBSCR
+            402 LOAD_CONST              10 ('Kaspersky Lab\\')
+            404 LOAD_FAST                6 (kes)
+            406 FORMAT_VALUE             0
+            408 LOAD_CONST              32 ('\\Data\\data.kvdb')
+            410 BUILD_STRING             3
+            412 CALL_METHOD              2
+            414 STORE_FAST               9 (data_kvdb_path)
+
+117         416 SETUP_FINALLY           76 (to 494)
+
+119         418 LOAD_CONST              33 ('takeown /F "')
+            420 LOAD_FAST                8 (report_folder)
+            422 FORMAT_VALUE             0
+            424 LOAD_CONST              34 ('" /R /D Y')
+            426 BUILD_STRING             3
+            428 STORE_FAST              10 (takeown_command)
+
+120         430 LOAD_CONST              35 ('RD /S /Q "')
+            432 LOAD_FAST                8 (report_folder)
+            434 FORMAT_VALUE             0
+            436 LOAD_CONST              36 ('"')
+            438 BUILD_STRING             3
+            440 STORE_FAST              11 (rd_command)
+
+121         442 LOAD_GLOBAL             13 (subprocess)
+            444 LOAD_ATTR               14 (run)
+            446 LOAD_FAST               10 (takeown_command)
+            448 LOAD_CONST              37 (True)
+            450 LOAD_CONST              37 (True)
+            452 LOAD_GLOBAL             13 (subprocess)
+            454 LOAD_ATTR               15 (PIPE)
+            456 LOAD_GLOBAL             13 (subprocess)
+            458 LOAD_ATTR               15 (PIPE)
+            460 LOAD_CONST              38 (('shell', 'check', 'stdout', 'stderr'))
+            462 CALL_FUNCTION_KW         5
+            464 POP_TOP
+
+122         466 LOAD_GLOBAL             13 (subprocess)
+            468 LOAD_ATTR               14 (run)
+            470 LOAD_FAST               11 (rd_command)
+            472 LOAD_CONST              37 (True)
+            474 LOAD_CONST              37 (True)
+            476 LOAD_GLOBAL             13 (subprocess)
+            478 LOAD_ATTR               15 (PIPE)
+            480 LOAD_GLOBAL             13 (subprocess)
+            482 LOAD_ATTR               15 (PIPE)
+            484 LOAD_CONST              38 (('shell', 'check', 'stdout', 'stderr'))
+            486 CALL_FUNCTION_KW         5
+            488 POP_TOP
+            490 POP_BLOCK
+            492 JUMP_FORWARD            64 (to 558)
+
+123     >>  494 DUP_TOP
+            496 LOAD_GLOBAL             13 (subprocess)
+            498 LOAD_ATTR               16 (CalledProcessError)
+            500 COMPARE_OP              10 (exception match)
+            502 EXTENDED_ARG             2
+            504 POP_JUMP_IF_FALSE      556
+            506 POP_TOP
+            508 STORE_FAST              12 (e)
+            510 POP_TOP
+            512 SETUP_FINALLY           30 (to 544)
+
+124         514 LOAD_GLOBAL              4 (status_label)
+            516 LOAD_ATTR                5 (config)
+            518 LOAD_CONST              39 ('删除报告文件夹时出错: ')
+            520 LOAD_FAST               12 (e)
+            522 FORMAT_VALUE             0
+            524 BUILD_STRING             2
+            526 LOAD_CONST               4 ('red')
+            528 LOAD_CONST               5 (('text', 'fg'))
+            530 CALL_FUNCTION_KW         2
+            532 POP_TOP
+
+125         534 POP_BLOCK
+            536 POP_EXCEPT
+            538 CALL_FINALLY             4 (to 544)
+            540 LOAD_CONST               0 (None)
+            542 RETURN_VALUE
+        >>  544 LOAD_CONST               0 (None)
+            546 STORE_FAST              12 (e)
+            548 DELETE_FAST             12 (e)
+            550 END_FINALLY
+            552 POP_EXCEPT
+            554 JUMP_FORWARD             2 (to 558)
+        >>  556 END_FINALLY
+
+127     >>  558 LOAD_GLOBAL              7 (delete_files)
+            560 LOAD_FAST                9 (data_kvdb_path)
+            562 CALL_FUNCTION            1
+            564 POP_TOP
+
+130         566 LOAD_CONST              20 ('reg delete HKLM\\SOFTWARE\\Microsoft\\SystemCertificates\\SPC /f')
+
+131         568 LOAD_CONST              14 ('reg delete HKLM\\')
+            570 LOAD_FAST                3 (software)
+            572 FORMAT_VALUE             0
+            574 LOAD_CONST              40 ('\\KasperskyLab\\protected\\')
+            576 LOAD_FAST                6 (kes)
+            578 FORMAT_VALUE             0
+            580 LOAD_CONST              41 ('\\watchdog\\LicenseInfo /f')
+            582 BUILD_STRING             5
+
+132         584 LOAD_CONST              14 ('reg delete HKLM\\')
+            586 LOAD_FAST                3 (software)
+            588 FORMAT_VALUE             0
+            590 LOAD_CONST              40 ('\\KasperskyLab\\protected\\')
+            592 LOAD_FAST                6 (kes)
+            594 FORMAT_VALUE             0
+            596 LOAD_CONST              42 ('\\watchdog\\Ticket /f')
+            598 BUILD_STRING             5
+
+133         600 LOAD_CONST              14 ('reg delete HKLM\\')
+            602 LOAD_FAST                3 (software)
+            604 FORMAT_VALUE             0
+            606 LOAD_CONST              43 ('\\KasperskyLab\\protected\\LicStorage /f')
+            608 BUILD_STRING             3
+
+134         610 LOAD_CONST              21 ('reg add HKLM\\')
+            612 LOAD_FAST                3 (software)
+            614 FORMAT_VALUE             0
+            616 LOAD_CONST              40 ('\\KasperskyLab\\protected\\')
+            618 LOAD_FAST                6 (kes)
+            620 FORMAT_VALUE             0
+            622 LOAD_CONST              44 ('\\Data /v Install /t REG_DWORD /d 1 /f')
+            624 BUILD_STRING             5
+
+135         626 LOAD_CONST              21 ('reg add HKLM\\')
+            628 LOAD_FAST                3 (software)
+            630 FORMAT_VALUE             0
+            632 LOAD_CONST              40 ('\\KasperskyLab\\protected\\')
+            634 LOAD_FAST                6 (kes)
+            636 FORMAT_VALUE             0
+            638 LOAD_CONST              45 ('\\settings /v EnableSelfProtection /t REG_DWORD /d ')
+            640 LOAD_FAST                7 (self_protection_value)
+            642 FORMAT_VALUE             0
+            644 LOAD_CONST              46 (' /f')
+            646 BUILD_STRING             7
+
+136         648 LOAD_CONST              25 ('shutdown /r /t 2')
+
+129         650 BUILD_LIST               7
+            652 STORE_FAST               5 (commands)
+
+138     >>  654 LOAD_FAST                5 (commands)
+            656 GET_ITER
+        >>  658 FOR_ITER               106 (to 766)
+            660 STORE_FAST              13 (command)
+
+139         662 SETUP_FINALLY           28 (to 692)
+
+140         664 LOAD_GLOBAL             13 (subprocess)
+            666 LOAD_ATTR               14 (run)
+            668 LOAD_FAST               13 (command)
+            670 LOAD_CONST              37 (True)
+            672 LOAD_CONST              37 (True)
+            674 LOAD_GLOBAL             13 (subprocess)
+            676 LOAD_ATTR               15 (PIPE)
+            678 LOAD_GLOBAL             13 (subprocess)
+            680 LOAD_ATTR               15 (PIPE)
+            682 LOAD_CONST              38 (('shell', 'check', 'stdout', 'stderr'))
+            684 CALL_FUNCTION_KW         5
+            686 POP_TOP
+            688 POP_BLOCK
+            690 JUMP_FORWARD            70 (to 762)
+
+141     >>  692 DUP_TOP
+            694 LOAD_GLOBAL             13 (subprocess)
+            696 LOAD_ATTR               16 (CalledProcessError)
+            698 COMPARE_OP              10 (exception match)
+            700 EXTENDED_ARG             2
+            702 POP_JUMP_IF_FALSE      760
+            704 POP_TOP
+            706 STORE_FAST              12 (e)
+            708 POP_TOP
+            710 SETUP_FINALLY           36 (to 748)
+
+142         712 LOAD_GLOBAL              4 (status_label)
+            714 LOAD_ATTR                5 (config)
+            716 LOAD_CONST              47 ('重置激活失败：')
+            718 LOAD_GLOBAL             17 (str)
+            720 LOAD_FAST               12 (e)
+            722 CALL_FUNCTION            1
+            724 FORMAT_VALUE             0
+            726 BUILD_STRING             2
+            728 LOAD_CONST               4 ('red')
+            730 LOAD_CONST               5 (('text', 'fg'))
+            732 CALL_FUNCTION_KW         2
+            734 POP_TOP
+
+143         736 POP_BLOCK
+            738 POP_EXCEPT
+            740 CALL_FINALLY             6 (to 748)
+            742 POP_TOP
+            744 LOAD_CONST               0 (None)
+            746 RETURN_VALUE
+        >>  748 LOAD_CONST               0 (None)
+            750 STORE_FAST              12 (e)
+            752 DELETE_FAST             12 (e)
+            754 END_FINALLY
+            756 POP_EXCEPT
+            758 JUMP_FORWARD             2 (to 762)
+        >>  760 END_FINALLY
+        >>  762 EXTENDED_ARG             2
+            764 JUMP_ABSOLUTE          658
+
+144     >>  766 LOAD_GLOBAL              4 (status_label)
+            768 LOAD_ATTR                5 (config)
+            770 LOAD_CONST              48 ('重置激活成功，即将重启电脑生效')
+            772 LOAD_CONST              49 ('green')
+            774 LOAD_CONST               5 (('text', 'fg'))
+            776 CALL_FUNCTION_KW         2
+            778 POP_TOP
+        >>  780 LOAD_CONST               0 (None)
+            782 RETURN_VALUE
+
+Disassembly of <code object check_conditions at 0x000002076CDD6190, file "Kaspersky.py", line 148>:
+149           0 LOAD_GLOBAL              0 (check_process_running)
+              2 LOAD_CONST               1 ('avpui.exe')
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               0 (process_running)
+
+150           8 LOAD_GLOBAL              1 (get_kaspersky_version)
+             10 CALL_FUNCTION            0
+             12 STORE_FAST               1 (version_key)
+
+151          14 LOAD_FAST                1 (version_key)
+             16 POP_JUMP_IF_FALSE       82
+
+152          18 LOAD_FAST                1 (version_key)
+             20 LOAD_METHOD              2 (startswith)
+             22 LOAD_CONST               2 ('AVP')
+             24 CALL_METHOD              1
+             26 POP_JUMP_IF_FALSE       34
+
+153          28 LOAD_CONST               3 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             30 STORE_FAST               2 (base_path)
+             32 JUMP_FORWARD            20 (to 54)
+
+154     >>   34 LOAD_FAST                1 (version_key)
+             36 LOAD_METHOD              2 (startswith)
+             38 LOAD_CONST               4 ('KES')
+             40 CALL_METHOD              1
+             42 POP_JUMP_IF_FALSE       50
+
+155          44 LOAD_CONST               5 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+             46 STORE_FAST               2 (base_path)
+             48 JUMP_FORWARD             4 (to 54)
+
+157     >>   50 LOAD_CONST               3 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             52 STORE_FAST               2 (base_path)
+
+159     >>   54 LOAD_GLOBAL              3 (get_registry_value)
+
+160          56 LOAD_FAST                2 (base_path)
+
+161          58 LOAD_FAST                1 (version_key)
+             60 FORMAT_VALUE             0
+             62 LOAD_CONST               6 ('\\settings')
+             64 BUILD_STRING             2
+
+162          66 LOAD_CONST               7 ('EnableSelfProtection')
+
+159          68 CALL_FUNCTION            3
+             70 STORE_FAST               3 (self_protection)
+
+164          72 LOAD_FAST                3 (self_protection)
+             74 LOAD_CONST               8 (1)
+             76 COMPARE_OP               2 (==)
+             78 STORE_FAST               4 (self_protection_status)
+             80 JUMP_FORWARD             4 (to 86)
+
+166     >>   82 LOAD_CONST               9 (False)
+             84 STORE_FAST               4 (self_protection_status)
+
+168     >>   86 LOAD_FAST                0 (process_running)
+             88 POP_JUMP_IF_TRUE        94
+             90 LOAD_FAST                4 (self_protection_status)
+             92 POP_JUMP_IF_FALSE      112
+
+169     >>   94 LOAD_GLOBAL              4 (status_label)
+             96 LOAD_ATTR                5 (config)
+             98 LOAD_CONST              10 ('请先关闭卡巴的自我保护并退出软件再操作')
+            100 LOAD_CONST              11 ('red')
+            102 LOAD_CONST              12 (('text', 'fg'))
+            104 CALL_FUNCTION_KW         2
+            106 POP_TOP
+
+170         108 LOAD_CONST               9 (False)
+            110 RETURN_VALUE
+
+171     >>  112 LOAD_CONST              13 (True)
+            114 RETURN_VALUE
+
+Disassembly of <code object get_patch at 0x000002076CDD6240, file "Kaspersky.py", line 175>:
+176           0 LOAD_GLOBAL              0 (check_conditions)
+              2 CALL_FUNCTION            0
+              4 EXTENDED_ARG             1
+              6 POP_JUMP_IF_FALSE      262
+
+177           8 LOAD_GLOBAL              1 (status_label)
+             10 LOAD_ATTR                2 (config)
+             12 LOAD_CONST               1 ('正在检查获取补丁设置...')
+             14 LOAD_CONST               2 ('blue')
+             16 LOAD_CONST               3 (('text', 'fg'))
+             18 CALL_FUNCTION_KW         2
+             20 POP_TOP
+
+178          22 LOAD_GLOBAL              3 (get_kaspersky_version)
+             24 CALL_FUNCTION            0
+             26 STORE_FAST               0 (version_key)
+
+179          28 LOAD_FAST                0 (version_key)
+             30 POP_JUMP_IF_FALSE      248
+             32 LOAD_FAST                0 (version_key)
+             34 LOAD_METHOD              4 (startswith)
+             36 LOAD_CONST               4 ('AVP')
+             38 CALL_METHOD              1
+             40 POP_JUMP_IF_FALSE      248
+
+180          42 LOAD_CONST               5 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             44 STORE_FAST               1 (base_path)
+
+181          46 LOAD_FAST                0 (version_key)
+             48 FORMAT_VALUE             0
+             50 LOAD_CONST               6 ('\\environment')
+             52 BUILD_STRING             2
+             54 STORE_FAST               2 (subkey_path)
+
+182          56 LOAD_CONST               7 ('UpdateTarget')
+             58 STORE_FAST               3 (value_name)
+
+183          60 LOAD_GLOBAL              5 (get_registry_value)
+             62 LOAD_FAST                1 (base_path)
+             64 LOAD_FAST                2 (subkey_path)
+             66 LOAD_FAST                3 (value_name)
+             68 CALL_FUNCTION            3
+             70 STORE_FAST               4 (update_target)
+
+184          72 LOAD_FAST                4 (update_target)
+             74 LOAD_CONST               0 (None)
+             76 COMPARE_OP               9 (is not)
+             78 POP_JUMP_IF_FALSE      232
+
+185          80 LOAD_FAST                4 (update_target)
+             82 LOAD_CONST               8 (200)
+             84 COMPARE_OP               2 (==)
+             86 POP_JUMP_IF_FALSE      104
+
+186          88 LOAD_GLOBAL              1 (status_label)
+             90 LOAD_ATTR                2 (config)
+             92 LOAD_CONST               9 ('已开启提前获取补丁，无需操作')
+             94 LOAD_CONST              10 ('red')
+             96 LOAD_CONST               3 (('text', 'fg'))
+             98 CALL_FUNCTION_KW         2
+            100 POP_TOP
+            102 JUMP_ABSOLUTE          246
+
+188     >>  104 SETUP_FINALLY           76 (to 182)
+
+189         106 LOAD_GLOBAL              6 (winreg)
+            108 LOAD_METHOD              7 (OpenKey)
+            110 LOAD_GLOBAL              6 (winreg)
+            112 LOAD_ATTR                8 (HKEY_LOCAL_MACHINE)
+            114 LOAD_FAST                1 (base_path)
+            116 LOAD_CONST              11 ('\\')
+            118 BINARY_ADD
+            120 LOAD_FAST                2 (subkey_path)
+            122 BINARY_ADD
+            124 LOAD_CONST              12 (0)
+            126 LOAD_GLOBAL              6 (winreg)
+            128 LOAD_ATTR                9 (KEY_SET_VALUE)
+            130 CALL_METHOD              4
+            132 STORE_FAST               5 (key)
+
+190         134 LOAD_GLOBAL              6 (winreg)
+            136 LOAD_METHOD             10 (SetValueEx)
+            138 LOAD_FAST                5 (key)
+            140 LOAD_FAST                3 (value_name)
+            142 LOAD_CONST              12 (0)
+            144 LOAD_GLOBAL              6 (winreg)
+            146 LOAD_ATTR               11 (REG_DWORD)
+            148 LOAD_CONST               8 (200)
+            150 CALL_METHOD              5
+            152 POP_TOP
+
+191         154 LOAD_GLOBAL              6 (winreg)
+            156 LOAD_METHOD             12 (CloseKey)
+            158 LOAD_FAST                5 (key)
+            160 CALL_METHOD              1
+            162 POP_TOP
+
+192         164 LOAD_GLOBAL              1 (status_label)
+            166 LOAD_ATTR                2 (config)
+            168 LOAD_CONST              13 ('操作成功，已开启提前获取补丁')
+            170 LOAD_CONST              14 ('green')
+            172 LOAD_CONST               3 (('text', 'fg'))
+            174 CALL_FUNCTION_KW         2
+            176 POP_TOP
+            178 POP_BLOCK
+            180 JUMP_ABSOLUTE          246
+
+193     >>  182 DUP_TOP
+            184 LOAD_GLOBAL             13 (Exception)
+            186 COMPARE_OP              10 (exception match)
+            188 POP_JUMP_IF_FALSE      228
+            190 POP_TOP
+            192 STORE_FAST               6 (e)
+            194 POP_TOP
+            196 SETUP_FINALLY           18 (to 216)
+
+194         198 LOAD_GLOBAL              1 (status_label)
+            200 LOAD_ATTR                2 (config)
+            202 LOAD_CONST              15 ('请先关闭卡巴的自我保护并退出软件再操作')
+            204 LOAD_CONST              10 ('red')
+            206 LOAD_CONST               3 (('text', 'fg'))
+            208 CALL_FUNCTION_KW         2
+            210 POP_TOP
+            212 POP_BLOCK
+            214 BEGIN_FINALLY
+        >>  216 LOAD_CONST               0 (None)
+            218 STORE_FAST               6 (e)
+            220 DELETE_FAST              6 (e)
+            222 END_FINALLY
+            224 POP_EXCEPT
+            226 JUMP_ABSOLUTE          246
+        >>  228 END_FINALLY
+            230 JUMP_FORWARD            14 (to 246)
+
+196     >>  232 LOAD_GLOBAL              1 (status_label)
+            234 LOAD_ATTR                2 (config)
+            236 LOAD_CONST              16 ('未检测到卡巴斯基家庭版软件')
+            238 LOAD_CONST              10 ('red')
+            240 LOAD_CONST               3 (('text', 'fg'))
+            242 CALL_FUNCTION_KW         2
+            244 POP_TOP
+        >>  246 JUMP_FORWARD            14 (to 262)
+
+198     >>  248 LOAD_GLOBAL              1 (status_label)
+            250 LOAD_ATTR                2 (config)
+            252 LOAD_CONST              16 ('未检测到卡巴斯基家庭版软件')
+            254 LOAD_CONST              10 ('red')
+            256 LOAD_CONST               3 (('text', 'fg'))
+            258 CALL_FUNCTION_KW         2
+            260 POP_TOP
+        >>  262 LOAD_CONST               0 (None)
+            264 RETURN_VALUE
+
+Disassembly of <code object desktop_protection at 0x000002076CDD63A0, file "Kaspersky.py", line 201>:
+202           0 LOAD_GLOBAL              0 (get_kaspersky_version)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (version_key)
+
+203           6 LOAD_FAST                0 (version_key)
+              8 LOAD_METHOD              1 (startswith)
+             10 LOAD_CONST               1 ('KES')
+             12 CALL_METHOD              1
+             14 POP_JUMP_IF_FALSE       34
+
+204          16 LOAD_GLOBAL              2 (status_label)
+             18 LOAD_ATTR                3 (config)
+             20 LOAD_CONST               2 ('未检测到卡巴斯基家庭版软件')
+             22 LOAD_CONST               3 ('red')
+             24 LOAD_CONST               4 (('text', 'fg'))
+             26 CALL_FUNCTION_KW         2
+             28 POP_TOP
+
+205          30 LOAD_CONST               0 (None)
+             32 RETURN_VALUE
+
+206     >>   34 LOAD_CONST               5 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             36 STORE_FAST               1 (base_path)
+
+207          38 SETUP_FINALLY          180 (to 220)
+
+208          40 LOAD_GLOBAL              4 (winreg)
+             42 LOAD_METHOD              5 (OpenKey)
+             44 LOAD_GLOBAL              4 (winreg)
+             46 LOAD_ATTR                6 (HKEY_LOCAL_MACHINE)
+             48 LOAD_FAST                1 (base_path)
+             50 FORMAT_VALUE             0
+             52 LOAD_CONST               6 ('\\')
+             54 LOAD_FAST                0 (version_key)
+             56 FORMAT_VALUE             0
+             58 LOAD_CONST               7 ('\\environment')
+             60 BUILD_STRING             4
+             62 LOAD_CONST               8 (0)
+             64 LOAD_GLOBAL              4 (winreg)
+             66 LOAD_ATTR                7 (KEY_ALL_ACCESS)
+             68 CALL_METHOD              4
+             70 STORE_FAST               2 (key)
+
+209          72 SETUP_FINALLY           78 (to 152)
+
+210          74 LOAD_GLOBAL              4 (winreg)
+             76 LOAD_METHOD              8 (QueryValueEx)
+             78 LOAD_FAST                2 (key)
+             80 LOAD_CONST               9 ('SecuredDesktopDisabled')
+             82 CALL_METHOD              2
+             84 UNPACK_SEQUENCE          2
+             86 STORE_FAST               3 (value)
+             88 STORE_FAST               4 (_)
+
+211          90 LOAD_FAST                3 (value)
+             92 LOAD_CONST              10 ('1')
+             94 COMPARE_OP               2 (==)
+             96 POP_JUMP_IF_FALSE      114
+
+212          98 LOAD_GLOBAL              2 (status_label)
+            100 LOAD_ATTR                3 (config)
+            102 LOAD_CONST              11 ('已关闭桌面请求确认保护提示，无需操作')
+            104 LOAD_CONST               3 ('red')
+            106 LOAD_CONST               4 (('text', 'fg'))
+            108 CALL_FUNCTION_KW         2
+            110 POP_TOP
+            112 JUMP_FORWARD            34 (to 148)
+
+214     >>  114 LOAD_GLOBAL              4 (winreg)
+            116 LOAD_METHOD              9 (SetValueEx)
+            118 LOAD_FAST                2 (key)
+            120 LOAD_CONST               9 ('SecuredDesktopDisabled')
+            122 LOAD_CONST               8 (0)
+            124 LOAD_GLOBAL              4 (winreg)
+            126 LOAD_ATTR               10 (REG_SZ)
+            128 LOAD_CONST              10 ('1')
+            130 CALL_METHOD              5
+            132 POP_TOP
+
+215         134 LOAD_GLOBAL              2 (status_label)
+            136 LOAD_ATTR                3 (config)
+            138 LOAD_CONST              12 ('操作成功，已关闭桌面请求确认保护提示')
+            140 LOAD_CONST              13 ('green')
+            142 LOAD_CONST               4 (('text', 'fg'))
+            144 CALL_FUNCTION_KW         2
+            146 POP_TOP
+        >>  148 POP_BLOCK
+            150 JUMP_FORWARD            54 (to 206)
+
+216     >>  152 DUP_TOP
+            154 LOAD_GLOBAL             11 (FileNotFoundError)
+            156 COMPARE_OP              10 (exception match)
+            158 POP_JUMP_IF_FALSE      204
+            160 POP_TOP
+            162 POP_TOP
+            164 POP_TOP
+
+217         166 LOAD_GLOBAL              4 (winreg)
+            168 LOAD_METHOD              9 (SetValueEx)
+            170 LOAD_FAST                2 (key)
+            172 LOAD_CONST               9 ('SecuredDesktopDisabled')
+            174 LOAD_CONST               8 (0)
+            176 LOAD_GLOBAL              4 (winreg)
+            178 LOAD_ATTR               10 (REG_SZ)
+            180 LOAD_CONST              10 ('1')
+            182 CALL_METHOD              5
+            184 POP_TOP
+
+218         186 LOAD_GLOBAL              2 (status_label)
+            188 LOAD_ATTR                3 (config)
+            190 LOAD_CONST              12 ('操作成功，已关闭桌面请求确认保护提示')
+            192 LOAD_CONST              13 ('green')
+            194 LOAD_CONST               4 (('text', 'fg'))
+            196 CALL_FUNCTION_KW         2
+            198 POP_TOP
+            200 POP_EXCEPT
+            202 JUMP_FORWARD             2 (to 206)
+        >>  204 END_FINALLY
+
+219     >>  206 LOAD_GLOBAL              4 (winreg)
+            208 LOAD_METHOD             12 (CloseKey)
+            210 LOAD_FAST                2 (key)
+            212 CALL_METHOD              1
+            214 POP_TOP
+            216 POP_BLOCK
+            218 JUMP_FORWARD            50 (to 270)
+
+220     >>  220 DUP_TOP
+            222 LOAD_GLOBAL             13 (Exception)
+            224 COMPARE_OP              10 (exception match)
+            226 EXTENDED_ARG             1
+            228 POP_JUMP_IF_FALSE      268
+            230 POP_TOP
+            232 STORE_FAST               5 (e)
+            234 POP_TOP
+            236 SETUP_FINALLY           18 (to 256)
+
+221         238 LOAD_GLOBAL              2 (status_label)
+            240 LOAD_ATTR                3 (config)
+            242 LOAD_CONST              14 ('请先关闭卡巴的自我保护并退出软件再操作')
+            244 LOAD_CONST               3 ('red')
+            246 LOAD_CONST               4 (('text', 'fg'))
+            248 CALL_FUNCTION_KW         2
+            250 POP_TOP
+            252 POP_BLOCK
+            254 BEGIN_FINALLY
+        >>  256 LOAD_CONST               0 (None)
+            258 STORE_FAST               5 (e)
+            260 DELETE_FAST              5 (e)
+            262 END_FINALLY
+            264 POP_EXCEPT
+            266 JUMP_FORWARD             2 (to 270)
+        >>  268 END_FINALLY
+        >>  270 LOAD_CONST               0 (None)
+            272 RETURN_VALUE
+
+Disassembly of <code object get_vbs_path at 0x000002076CDD6920, file "Kaspersky.py", line 223>:
+224           0 LOAD_GLOBAL              0 (getattr)
+              2 LOAD_GLOBAL              1 (sys)
+              4 LOAD_CONST               1 ('frozen')
+              6 LOAD_CONST               2 (False)
+              8 CALL_FUNCTION            3
+             10 POP_JUMP_IF_FALSE       44
+
+226          12 LOAD_GLOBAL              2 (hasattr)
+             14 LOAD_GLOBAL              1 (sys)
+             16 LOAD_CONST               3 ('_MEIPASS')
+             18 CALL_FUNCTION            2
+             20 POP_JUMP_IF_FALSE       28
+             22 LOAD_GLOBAL              1 (sys)
+             24 LOAD_ATTR                3 (_MEIPASS)
+             26 JUMP_FORWARD            12 (to 40)
+        >>   28 LOAD_GLOBAL              4 (os)
+             30 LOAD_ATTR                5 (path)
+             32 LOAD_METHOD              6 (dirname)
+             34 LOAD_GLOBAL              1 (sys)
+             36 LOAD_ATTR                7 (executable)
+             38 CALL_METHOD              1
+        >>   40 STORE_FAST               0 (base_dir)
+             42 JUMP_FORWARD            20 (to 64)
+
+229     >>   44 LOAD_GLOBAL              4 (os)
+             46 LOAD_ATTR                5 (path)
+             48 LOAD_METHOD              6 (dirname)
+             50 LOAD_GLOBAL              4 (os)
+             52 LOAD_ATTR                5 (path)
+             54 LOAD_METHOD              8 (abspath)
+             56 LOAD_GLOBAL              9 (__file__)
+             58 CALL_METHOD              1
+             60 CALL_METHOD              1
+             62 STORE_FAST               0 (base_dir)
+
+230     >>   64 LOAD_GLOBAL              4 (os)
+             66 LOAD_ATTR                5 (path)
+             68 LOAD_METHOD             10 (join)
+             70 LOAD_FAST                0 (base_dir)
+             72 LOAD_CONST               4 ('Act.vbs')
+             74 CALL_METHOD              2
+             76 RETURN_VALUE
+
+Disassembly of <code object export_license at 0x000002076CDDBB30, file "Kaspersky.py", line 234>:
+235           0 LOAD_GLOBAL              0 (check_conditions)
+              2 CALL_FUNCTION            0
+              4 POP_JUMP_IF_FALSE       48
+
+236           6 LOAD_GLOBAL              1 (toggle_buttons_state)
+              8 LOAD_CONST               1 ('disabled')
+             10 CALL_FUNCTION            1
+             12 POP_TOP
+
+237          14 LOAD_GLOBAL              2 (status_label)
+             16 LOAD_ATTR                3 (config)
+             18 LOAD_CONST               2 ('正在导出许可授权...')
+             20 LOAD_CONST               3 ('blue')
+             22 LOAD_CONST               4 (('text', 'fg'))
+             24 CALL_FUNCTION_KW         2
+             26 POP_TOP
+
+238          28 LOAD_GLOBAL              4 (root)
+             30 LOAD_METHOD              5 (update)
+             32 CALL_METHOD              0
+             34 POP_TOP
+
+239          36 LOAD_GLOBAL              4 (root)
+             38 LOAD_METHOD              6 (after)
+             40 LOAD_CONST               5 (3000)
+             42 LOAD_GLOBAL              7 (perform_export)
+             44 CALL_METHOD              2
+             46 POP_TOP
+        >>   48 LOAD_CONST               0 (None)
+             50 RETURN_VALUE
+
+Disassembly of <code object perform_export at 0x000002076CDDF9D0, file "Kaspersky.py", line 241>:
+242           0 SETUP_FINALLY          130 (to 132)
+              2 SETUP_FINALLY           66 (to 70)
+
+243           4 LOAD_GLOBAL              1 (get_vbs_path)
+              6 CALL_FUNCTION            0
+              8 STORE_FAST               0 (vbs_path)
+
+244          10 LOAD_GLOBAL              2 (os)
+             12 LOAD_ATTR                3 (path)
+             14 LOAD_METHOD              4 (exists)
+             16 LOAD_FAST                0 (vbs_path)
+             18 CALL_METHOD              1
+             20 POP_JUMP_IF_FALSE       52
+
+245          22 LOAD_GLOBAL              5 (subprocess)
+             24 LOAD_METHOD              6 (Popen)
+             26 LOAD_CONST               2 ('wscript')
+             28 LOAD_FAST                0 (vbs_path)
+             30 BUILD_LIST               2
+             32 CALL_METHOD              1
+             34 POP_TOP
+
+246          36 LOAD_GLOBAL              7 (status_label)
+             38 LOAD_ATTR                8 (config)
+             40 LOAD_CONST               3 ('授权导出成功，已保存在桌面')
+             42 LOAD_CONST               4 ('green')
+             44 LOAD_CONST               5 (('text', 'fg'))
+             46 CALL_FUNCTION_KW         2
+             48 POP_TOP
+             50 JUMP_FORWARD            14 (to 66)
+
+248     >>   52 LOAD_GLOBAL              7 (status_label)
+             54 LOAD_ATTR                8 (config)
+             56 LOAD_CONST               6 ('未找到调试文件')
+             58 LOAD_CONST               7 ('red')
+             60 LOAD_CONST               5 (('text', 'fg'))
+             62 CALL_FUNCTION_KW         2
+             64 POP_TOP
+        >>   66 POP_BLOCK
+             68 JUMP_FORWARD            58 (to 128)
+
+249     >>   70 DUP_TOP
+             72 LOAD_GLOBAL              9 (Exception)
+             74 COMPARE_OP              10 (exception match)
+             76 POP_JUMP_IF_FALSE      126
+             78 POP_TOP
+             80 STORE_FAST               1 (e)
+             82 POP_TOP
+             84 SETUP_FINALLY           28 (to 114)
+
+250          86 LOAD_GLOBAL              7 (status_label)
+             88 LOAD_ATTR                8 (config)
+             90 LOAD_CONST               8 ('导出授权时出错: ')
+             92 LOAD_GLOBAL             10 (str)
+             94 LOAD_FAST                1 (e)
+             96 CALL_FUNCTION            1
+             98 FORMAT_VALUE             0
+            100 BUILD_STRING             2
+            102 LOAD_CONST               7 ('red')
+            104 LOAD_CONST               5 (('text', 'fg'))
+            106 CALL_FUNCTION_KW         2
+            108 POP_TOP
+            110 POP_BLOCK
+            112 BEGIN_FINALLY
+        >>  114 LOAD_CONST               0 (None)
+            116 STORE_FAST               1 (e)
+            118 DELETE_FAST              1 (e)
+            120 END_FINALLY
+            122 POP_EXCEPT
+            124 JUMP_FORWARD             2 (to 128)
+        >>  126 END_FINALLY
+        >>  128 POP_BLOCK
+            130 BEGIN_FINALLY
+
+252     >>  132 LOAD_GLOBAL              0 (toggle_buttons_state)
+            134 LOAD_CONST               1 ('normal')
+            136 CALL_FUNCTION            1
+            138 POP_TOP
+            140 END_FINALLY
+            142 LOAD_CONST               0 (None)
+            144 RETURN_VALUE
+
+Disassembly of <code object import_license at 0x000002076CF54870, file "Kaspersky.py", line 256>:
+257           0 LOAD_GLOBAL              0 (check_conditions)
+              2 CALL_FUNCTION            0
+              4 POP_JUMP_IF_FALSE      100
+
+258           6 LOAD_GLOBAL              1 (toggle_buttons_state)
+              8 LOAD_CONST               1 ('disabled')
+             10 CALL_FUNCTION            1
+             12 POP_TOP
+
+259          14 LOAD_GLOBAL              2 (filedialog)
+             16 LOAD_ATTR                3 (askopenfilename)
+             18 LOAD_CONST               2 (('授权文件', '*.lic;*.dat'))
+             20 BUILD_LIST               1
+             22 LOAD_CONST               3 (('filetypes',))
+             24 CALL_FUNCTION_KW         1
+             26 STORE_DEREF              0 (file_path)
+
+260          28 LOAD_DEREF               0 (file_path)
+             30 POP_JUMP_IF_TRUE        58
+
+261          32 LOAD_GLOBAL              4 (status_label)
+             34 LOAD_ATTR                5 (config)
+             36 LOAD_CONST               4 ('未选择任何授权文件')
+             38 LOAD_CONST               5 ('red')
+             40 LOAD_CONST               6 (('text', 'fg'))
+             42 CALL_FUNCTION_KW         2
+             44 POP_TOP
+
+262          46 LOAD_GLOBAL              1 (toggle_buttons_state)
+             48 LOAD_CONST               7 ('normal')
+             50 CALL_FUNCTION            1
+             52 POP_TOP
+
+263          54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+265     >>   58 LOAD_GLOBAL              4 (status_label)
+             60 LOAD_ATTR                5 (config)
+             62 LOAD_CONST               8 ('已选择授权文件，正在导入授权...')
+             64 LOAD_CONST               9 ('blue')
+             66 LOAD_CONST               6 (('text', 'fg'))
+             68 CALL_FUNCTION_KW         2
+             70 POP_TOP
+
+266          72 LOAD_GLOBAL              6 (root)
+             74 LOAD_METHOD              7 (update)
+             76 CALL_METHOD              0
+             78 POP_TOP
+
+267          80 LOAD_GLOBAL              6 (root)
+             82 LOAD_METHOD              8 (after)
+             84 LOAD_CONST              10 (3000)
+             86 LOAD_CLOSURE             0 (file_path)
+             88 BUILD_TUPLE              1
+             90 LOAD_CONST              11 (<code object <lambda> at 0x000002076CF512F0, file "Kaspersky.py", line 267>)
+             92 LOAD_CONST              12 ('import_license.<locals>.<lambda>')
+             94 MAKE_FUNCTION            8 (closure)
+             96 CALL_METHOD              2
+             98 POP_TOP
+        >>  100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x000002076CF512F0, file "Kaspersky.py", line 267>:
+267           0 LOAD_GLOBAL              0 (perform_import)
+              2 LOAD_DEREF               0 (file_path)
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE
+
+Disassembly of <code object perform_import at 0x000002076CF5A7C0, file "Kaspersky.py", line 269>:
+270           0 SETUP_FINALLY          140 (to 142)
+              2 SETUP_FINALLY           76 (to 80)
+
+271           4 LOAD_GLOBAL              1 (get_vbs_path)
+              6 CALL_FUNCTION            0
+              8 STORE_FAST               1 (vbs_path)
+
+272          10 LOAD_GLOBAL              2 (os)
+             12 LOAD_ATTR                3 (path)
+             14 LOAD_METHOD              4 (exists)
+             16 LOAD_FAST                1 (vbs_path)
+             18 CALL_METHOD              1
+             20 POP_JUMP_IF_FALSE       62
+
+273          22 LOAD_GLOBAL              5 (subprocess)
+             24 LOAD_METHOD              6 (Popen)
+             26 LOAD_CONST               2 ('wscript "')
+             28 LOAD_FAST                1 (vbs_path)
+             30 FORMAT_VALUE             0
+             32 LOAD_CONST               3 ('" "')
+             34 LOAD_FAST                0 (file_path)
+             36 FORMAT_VALUE             0
+             38 LOAD_CONST               4 ('"')
+             40 BUILD_STRING             5
+             42 CALL_METHOD              1
+             44 POP_TOP
+
+274          46 LOAD_GLOBAL              7 (status_label)
+             48 LOAD_ATTR                8 (config)
+             50 LOAD_CONST               5 ('授权导入成功，即将自动重启软件')
+             52 LOAD_CONST               6 ('green')
+             54 LOAD_CONST               7 (('text', 'fg'))
+             56 CALL_FUNCTION_KW         2
+             58 POP_TOP
+             60 JUMP_FORWARD            14 (to 76)
+
+277     >>   62 LOAD_GLOBAL              7 (status_label)
+             64 LOAD_ATTR                8 (config)
+             66 LOAD_CONST               8 ('未找到调试文件')
+             68 LOAD_CONST               9 ('red')
+             70 LOAD_CONST               7 (('text', 'fg'))
+             72 CALL_FUNCTION_KW         2
+             74 POP_TOP
+        >>   76 POP_BLOCK
+             78 JUMP_FORWARD            58 (to 138)
+
+278     >>   80 DUP_TOP
+             82 LOAD_GLOBAL              9 (Exception)
+             84 COMPARE_OP              10 (exception match)
+             86 POP_JUMP_IF_FALSE      136
+             88 POP_TOP
+             90 STORE_FAST               2 (e)
+             92 POP_TOP
+             94 SETUP_FINALLY           28 (to 124)
+
+279          96 LOAD_GLOBAL              7 (status_label)
+             98 LOAD_ATTR                8 (config)
+            100 LOAD_CONST              10 ('导入授权时出错: ')
+            102 LOAD_GLOBAL             10 (str)
+            104 LOAD_FAST                2 (e)
+            106 CALL_FUNCTION            1
+            108 FORMAT_VALUE             0
+            110 BUILD_STRING             2
+            112 LOAD_CONST               9 ('red')
+            114 LOAD_CONST               7 (('text', 'fg'))
+            116 CALL_FUNCTION_KW         2
+            118 POP_TOP
+            120 POP_BLOCK
+            122 BEGIN_FINALLY
+        >>  124 LOAD_CONST               0 (None)
+            126 STORE_FAST               2 (e)
+            128 DELETE_FAST              2 (e)
+            130 END_FINALLY
+            132 POP_EXCEPT
+            134 JUMP_FORWARD             2 (to 138)
+        >>  136 END_FINALLY
+        >>  138 POP_BLOCK
+            140 BEGIN_FINALLY
+
+281     >>  142 LOAD_GLOBAL              0 (toggle_buttons_state)
+            144 LOAD_CONST               1 ('normal')
+            146 CALL_FUNCTION            1
+            148 POP_TOP
+            150 END_FINALLY
+            152 LOAD_CONST               0 (None)
+            154 RETURN_VALUE
+
+Disassembly of <code object toggle_buttons_state at 0x000002076CF5A660, file "Kaspersky.py", line 284>:
+285           0 LOAD_GLOBAL              0 (button_frame)
+              2 LOAD_METHOD              1 (winfo_children)
+              4 CALL_METHOD              0
+              6 GET_ITER
+        >>    8 FOR_ITER                40 (to 50)
+             10 STORE_FAST               1 (child)
+
+286          12 LOAD_GLOBAL              2 (isinstance)
+             14 LOAD_FAST                1 (child)
+             16 LOAD_GLOBAL              3 (ttk)
+             18 LOAD_ATTR                4 (Button)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE        8
+
+287          24 LOAD_FAST                1 (child)
+             26 LOAD_METHOD              5 (state)
+             28 LOAD_DEREF               0 (state)
+             30 LOAD_CONST               1 ('normal')
+             32 COMPARE_OP               2 (==)
+             34 POP_JUMP_IF_FALSE       40
+             36 LOAD_CONST               2 ('!disabled')
+             38 JUMP_FORWARD             2 (to 42)
+        >>   40 LOAD_CONST               3 ('disabled')
+        >>   42 BUILD_LIST               1
+             44 CALL_METHOD              1
+             46 POP_TOP
+             48 JUMP_ABSOLUTE            8
+
+288     >>   50 LOAD_GLOBAL              6 (new_button_frame)
+             52 LOAD_METHOD              1 (winfo_children)
+             54 CALL_METHOD              0
+             56 GET_ITER
+        >>   58 FOR_ITER                40 (to 100)
+             60 STORE_FAST               1 (child)
+
+289          62 LOAD_GLOBAL              2 (isinstance)
+             64 LOAD_FAST                1 (child)
+             66 LOAD_GLOBAL              3 (ttk)
+             68 LOAD_ATTR                4 (Button)
+             70 CALL_FUNCTION            2
+             72 POP_JUMP_IF_FALSE       58
+
+290          74 LOAD_FAST                1 (child)
+             76 LOAD_METHOD              5 (state)
+             78 LOAD_DEREF               0 (state)
+             80 LOAD_CONST               1 ('normal')
+             82 COMPARE_OP               2 (==)
+             84 POP_JUMP_IF_FALSE       90
+             86 LOAD_CONST               2 ('!disabled')
+             88 JUMP_FORWARD             2 (to 92)
+        >>   90 LOAD_CONST               3 ('disabled')
+        >>   92 BUILD_LIST               1
+             94 CALL_METHOD              1
+             96 POP_TOP
+             98 JUMP_ABSOLUTE           58
+
+291     >>  100 LOAD_GLOBAL              7 (root)
+            102 LOAD_METHOD              8 (protocol)
+            104 LOAD_CONST               4 ('WM_DELETE_WINDOW')
+            106 LOAD_CLOSURE             0 (state)
+            108 BUILD_TUPLE              1
+            110 LOAD_CONST               5 (<code object <lambda> at 0x000002076CF5A710, file "Kaspersky.py", line 291>)
+            112 LOAD_CONST               6 ('toggle_buttons_state.<locals>.<lambda>')
+            114 MAKE_FUNCTION            8 (closure)
+            116 CALL_METHOD              2
+            118 POP_TOP
+            120 LOAD_CONST               0 (None)
+            122 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x000002076CF5A710, file "Kaspersky.py", line 291>:
+291           0 LOAD_DEREF               0 (state)
+              2 LOAD_CONST               1 ('disabled')
+              4 COMPARE_OP               2 (==)
+              6 POP_JUMP_IF_FALSE       12
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+        >>   12 LOAD_GLOBAL              0 (exit_app)
+             14 CALL_FUNCTION            0
+             16 RETURN_VALUE
+
+Disassembly of <code object disable_self_protection at 0x000002076CF63030, file "Kaspersky.py", line 294>:
+295           0 LOAD_GLOBAL              0 (get_kaspersky_version)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (version_key)
+
+296           6 LOAD_FAST                0 (version_key)
+              8 POP_JUMP_IF_TRUE        28
+
+297          10 LOAD_GLOBAL              1 (status_label)
+             12 LOAD_ATTR                2 (config)
+             14 LOAD_CONST               1 ('未检测到卡巴斯基软件，无法关闭自我保护')
+             16 LOAD_CONST               2 ('red')
+             18 LOAD_CONST               3 (('text', 'fg'))
+             20 CALL_FUNCTION_KW         2
+             22 POP_TOP
+
+298          24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+299     >>   28 LOAD_FAST                0 (version_key)
+             30 LOAD_METHOD              3 (startswith)
+             32 LOAD_CONST               4 ('AVP')
+             34 CALL_METHOD              1
+             36 POP_JUMP_IF_FALSE       44
+
+300          38 LOAD_CONST               5 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             40 STORE_FAST               1 (base_path)
+             42 JUMP_FORWARD            20 (to 64)
+
+301     >>   44 LOAD_FAST                0 (version_key)
+             46 LOAD_METHOD              3 (startswith)
+             48 LOAD_CONST               6 ('KES')
+             50 CALL_METHOD              1
+             52 POP_JUMP_IF_FALSE       60
+
+302          54 LOAD_CONST               7 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+             56 STORE_FAST               1 (base_path)
+             58 JUMP_FORWARD             4 (to 64)
+
+304     >>   60 LOAD_CONST               5 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             62 STORE_FAST               1 (base_path)
+
+306     >>   64 LOAD_GLOBAL              4 (get_registry_value)
+
+307          66 LOAD_FAST                1 (base_path)
+
+308          68 LOAD_FAST                0 (version_key)
+             70 FORMAT_VALUE             0
+             72 LOAD_CONST               8 ('\\settings')
+             74 BUILD_STRING             2
+
+309          76 LOAD_CONST               9 ('EnableSelfProtection')
+
+306          78 CALL_FUNCTION            3
+             80 STORE_FAST               2 (self_protection)
+
+311          82 LOAD_FAST                2 (self_protection)
+             84 LOAD_CONST              10 (0)
+             86 COMPARE_OP               2 (==)
+             88 POP_JUMP_IF_FALSE      106
+
+312          90 LOAD_GLOBAL              1 (status_label)
+             92 LOAD_ATTR                2 (config)
+             94 LOAD_CONST              11 ('已关闭软件的自我保护功能，无需操作')
+             96 LOAD_CONST               2 ('red')
+             98 LOAD_CONST               3 (('text', 'fg'))
+            100 CALL_FUNCTION_KW         2
+            102 POP_TOP
+            104 JUMP_FORWARD           180 (to 286)
+
+313     >>  106 LOAD_FAST                2 (self_protection)
+            108 LOAD_CONST              12 (1)
+            110 COMPARE_OP               2 (==)
+            112 EXTENDED_ARG             1
+            114 POP_JUMP_IF_FALSE      272
+
+314         116 SETUP_FINALLY          102 (to 220)
+
+315         118 LOAD_GLOBAL              5 (winreg)
+            120 LOAD_METHOD              6 (OpenKey)
+            122 LOAD_GLOBAL              5 (winreg)
+            124 LOAD_ATTR                7 (HKEY_LOCAL_MACHINE)
+            126 LOAD_FAST                1 (base_path)
+            128 FORMAT_VALUE             0
+            130 LOAD_CONST              13 ('\\')
+            132 LOAD_FAST                0 (version_key)
+            134 FORMAT_VALUE             0
+            136 LOAD_CONST               8 ('\\settings')
+            138 BUILD_STRING             4
+            140 LOAD_CONST              10 (0)
+            142 LOAD_GLOBAL              5 (winreg)
+            144 LOAD_ATTR                8 (KEY_SET_VALUE)
+            146 CALL_METHOD              4
+            148 STORE_FAST               3 (key)
+
+316         150 LOAD_GLOBAL              5 (winreg)
+            152 LOAD_METHOD              9 (SetValueEx)
+            154 LOAD_FAST                3 (key)
+            156 LOAD_CONST               9 ('EnableSelfProtection')
+            158 LOAD_CONST              10 (0)
+            160 LOAD_GLOBAL              5 (winreg)
+            162 LOAD_ATTR               10 (REG_DWORD)
+            164 LOAD_CONST              10 (0)
+            166 CALL_METHOD              5
+            168 POP_TOP
+
+317         170 LOAD_GLOBAL              5 (winreg)
+            172 LOAD_METHOD             11 (CloseKey)
+            174 LOAD_FAST                3 (key)
+            176 CALL_METHOD              1
+            178 POP_TOP
+
+318         180 LOAD_GLOBAL              1 (status_label)
+            182 LOAD_ATTR                2 (config)
+            184 LOAD_CONST              14 ('操作成功，自我保护功能已关闭')
+            186 LOAD_CONST              15 ('green')
+            188 LOAD_CONST               3 (('text', 'fg'))
+            190 CALL_FUNCTION_KW         2
+            192 POP_TOP
+
+320         194 LOAD_CONST              16 ('已关闭')
+            196 STORE_FAST               4 (self_protection_status)
+
+321         198 LOAD_CONST              15 ('green')
+            200 STORE_FAST               5 (self_protection_color)
+
+322         202 LOAD_GLOBAL             12 (self_protection_value)
+            204 LOAD_ATTR                2 (config)
+            206 LOAD_FAST                4 (self_protection_status)
+            208 LOAD_FAST                5 (self_protection_color)
+            210 LOAD_CONST               3 (('text', 'fg'))
+            212 CALL_FUNCTION_KW         2
+            214 POP_TOP
+            216 POP_BLOCK
+            218 JUMP_FORWARD            50 (to 270)
+
+323     >>  220 DUP_TOP
+            222 LOAD_GLOBAL             13 (Exception)
+            224 COMPARE_OP              10 (exception match)
+            226 EXTENDED_ARG             1
+            228 POP_JUMP_IF_FALSE      268
+            230 POP_TOP
+            232 STORE_FAST               6 (e)
+            234 POP_TOP
+            236 SETUP_FINALLY           18 (to 256)
+
+324         238 LOAD_GLOBAL              1 (status_label)
+            240 LOAD_ATTR                2 (config)
+            242 LOAD_CONST              17 ('关闭自我保护失败，请进安全模式下操作')
+            244 LOAD_CONST               2 ('red')
+            246 LOAD_CONST               3 (('text', 'fg'))
+            248 CALL_FUNCTION_KW         2
+            250 POP_TOP
+            252 POP_BLOCK
+            254 BEGIN_FINALLY
+        >>  256 LOAD_CONST               0 (None)
+            258 STORE_FAST               6 (e)
+            260 DELETE_FAST              6 (e)
+            262 END_FINALLY
+            264 POP_EXCEPT
+            266 JUMP_FORWARD             2 (to 270)
+        >>  268 END_FINALLY
+        >>  270 JUMP_FORWARD            14 (to 286)
+
+326     >>  272 LOAD_GLOBAL              1 (status_label)
+            274 LOAD_ATTR                2 (config)
+            276 LOAD_CONST              18 ('无法获取自我保护状态，操作失败')
+            278 LOAD_CONST               2 ('red')
+            280 LOAD_CONST               3 (('text', 'fg'))
+            282 CALL_FUNCTION_KW         2
+            284 POP_TOP
+        >>  286 LOAD_CONST               0 (None)
+            288 RETURN_VALUE
+
+Disassembly of <code object safe_mode_reboot at 0x000002076CF62F50, file "Kaspersky.py", line 329>:
+330           0 SETUP_FINALLY          114 (to 116)
+
+331           2 LOAD_GLOBAL              0 (messagebox)
+              4 LOAD_METHOD              1 (askyesno)
+              6 LOAD_CONST               1 ('确认')
+              8 LOAD_CONST               2 ('是否要重启电脑进入安全模式')
+             10 CALL_METHOD              2
+             12 POP_JUMP_IF_FALSE      112
+
+332          14 LOAD_GLOBAL              2 (subprocess)
+             16 LOAD_ATTR                3 (run)
+             18 LOAD_CONST               3 ('bcdedit')
+             20 LOAD_CONST               4 ('/set')
+             22 LOAD_CONST               5 ('{current}')
+             24 LOAD_CONST               6 ('safeboot')
+             26 LOAD_CONST               7 ('network')
+             28 BUILD_LIST               5
+             30 LOAD_CONST               8 (True)
+             32 LOAD_CONST               9 (('check',))
+             34 CALL_FUNCTION_KW         2
+             36 POP_TOP
+
+333          38 LOAD_GLOBAL              2 (subprocess)
+             40 LOAD_ATTR                3 (run)
+             42 LOAD_CONST              10 ('reg')
+             44 LOAD_CONST              11 ('add')
+             46 LOAD_CONST              12 ('HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce')
+
+334          48 LOAD_CONST              13 ('/v')
+             50 LOAD_CONST              14 ('*UndoSB')
+             52 LOAD_CONST              15 ('/t')
+             54 LOAD_CONST              16 ('REG_SZ')
+             56 LOAD_CONST              17 ('/d')
+             58 LOAD_CONST              18 ('bcdedit /deletevalue {current} safeboot')
+
+335          60 LOAD_CONST              19 ('/f')
+
+333          62 BUILD_LIST              10
+
+335          64 LOAD_CONST               8 (True)
+
+333          66 LOAD_CONST               9 (('check',))
+             68 CALL_FUNCTION_KW         2
+             70 POP_TOP
+
+337          72 LOAD_GLOBAL              2 (subprocess)
+             74 LOAD_ATTR                3 (run)
+             76 LOAD_CONST              20 ('shutdown')
+             78 LOAD_CONST              21 ('-r')
+             80 LOAD_CONST              22 ('-t')
+             82 LOAD_CONST              23 ('3')
+             84 LOAD_CONST              24 ('-c')
+             86 LOAD_CONST              25 ('电脑将在3秒后重启进入安全模式')
+             88 BUILD_LIST               6
+             90 LOAD_CONST               8 (True)
+             92 LOAD_CONST               9 (('check',))
+             94 CALL_FUNCTION_KW         2
+             96 POP_TOP
+
+338          98 LOAD_GLOBAL              4 (status_label)
+            100 LOAD_ATTR                5 (config)
+            102 LOAD_CONST              26 ('正在重启进入安全模式...')
+            104 LOAD_CONST              27 ('#4CAF50')
+            106 LOAD_CONST              28 (('text', 'fg'))
+            108 CALL_FUNCTION_KW         2
+            110 POP_TOP
+        >>  112 POP_BLOCK
+            114 JUMP_FORWARD            60 (to 176)
+
+339     >>  116 DUP_TOP
+            118 LOAD_GLOBAL              2 (subprocess)
+            120 LOAD_ATTR                6 (CalledProcessError)
+            122 COMPARE_OP              10 (exception match)
+            124 POP_JUMP_IF_FALSE      174
+            126 POP_TOP
+            128 STORE_FAST               0 (e)
+            130 POP_TOP
+            132 SETUP_FINALLY           28 (to 162)
+
+340         134 LOAD_GLOBAL              4 (status_label)
+            136 LOAD_ATTR                5 (config)
+            138 LOAD_CONST              29 ('安全模式启动失败：')
+            140 LOAD_GLOBAL              7 (str)
+            142 LOAD_FAST                0 (e)
+            144 CALL_FUNCTION            1
+            146 FORMAT_VALUE             0
+            148 BUILD_STRING             2
+            150 LOAD_CONST              30 ('#e53935')
+            152 LOAD_CONST              28 (('text', 'fg'))
+            154 CALL_FUNCTION_KW         2
+            156 POP_TOP
+            158 POP_BLOCK
+            160 BEGIN_FINALLY
+        >>  162 LOAD_CONST               0 (None)
+            164 STORE_FAST               0 (e)
+            166 DELETE_FAST              0 (e)
+            168 END_FINALLY
+            170 POP_EXCEPT
+            172 JUMP_FORWARD             2 (to 176)
+        >>  174 END_FINALLY
+        >>  176 LOAD_CONST               0 (None)
+            178 RETURN_VALUE
+
+Disassembly of <code object version_update at 0x000002076CF62EA0, file "Kaspersky.py", line 343>:
+344           0 LOAD_GLOBAL              0 (get_kaspersky_version)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (version_key)
+
+345           6 LOAD_FAST                0 (version_key)
+              8 EXTENDED_ARG             1
+             10 POP_JUMP_IF_FALSE      344
+             12 LOAD_FAST                0 (version_key)
+             14 LOAD_METHOD              1 (startswith)
+             16 LOAD_CONST               1 ('AVP')
+             18 CALL_METHOD              1
+             20 EXTENDED_ARG             1
+             22 POP_JUMP_IF_FALSE      344
+
+346          24 LOAD_CONST               2 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             26 STORE_FAST               1 (base_path)
+
+347          28 LOAD_FAST                0 (version_key)
+             30 FORMAT_VALUE             0
+             32 LOAD_CONST               3 ('\\environment')
+             34 BUILD_STRING             2
+             36 STORE_FAST               2 (subkey_path)
+
+348          38 LOAD_CONST               4 ('IsVersionUpdateEnabled')
+             40 STORE_FAST               3 (value_name)
+
+349          42 LOAD_GLOBAL              2 (get_registry_value)
+             44 LOAD_FAST                1 (base_path)
+             46 LOAD_FAST                2 (subkey_path)
+             48 LOAD_FAST                3 (value_name)
+             50 CALL_FUNCTION            3
+             52 STORE_FAST               4 (is_update_enabled)
+
+350          54 LOAD_FAST                4 (is_update_enabled)
+             56 LOAD_CONST               0 (None)
+             58 COMPARE_OP               9 (is not)
+             60 POP_JUMP_IF_FALSE      214
+
+351          62 LOAD_FAST                4 (is_update_enabled)
+             64 LOAD_CONST               5 (0)
+             66 COMPARE_OP               2 (==)
+             68 POP_JUMP_IF_FALSE       86
+
+352          70 LOAD_GLOBAL              3 (status_label)
+             72 LOAD_ATTR                4 (config)
+             74 LOAD_CONST               6 ('已关闭版本更新，无需操作')
+             76 LOAD_CONST               7 ('red')
+             78 LOAD_CONST               8 (('text', 'fg'))
+             80 CALL_FUNCTION_KW         2
+             82 POP_TOP
+             84 JUMP_FORWARD           126 (to 212)
+
+354     >>   86 SETUP_FINALLY           76 (to 164)
+
+355          88 LOAD_GLOBAL              5 (winreg)
+             90 LOAD_METHOD              6 (OpenKey)
+             92 LOAD_GLOBAL              5 (winreg)
+             94 LOAD_ATTR                7 (HKEY_LOCAL_MACHINE)
+             96 LOAD_FAST                1 (base_path)
+             98 LOAD_CONST               9 ('\\')
+            100 BINARY_ADD
+            102 LOAD_FAST                2 (subkey_path)
+            104 BINARY_ADD
+            106 LOAD_CONST               5 (0)
+            108 LOAD_GLOBAL              5 (winreg)
+            110 LOAD_ATTR                8 (KEY_SET_VALUE)
+            112 CALL_METHOD              4
+            114 STORE_FAST               5 (key)
+
+356         116 LOAD_GLOBAL              5 (winreg)
+            118 LOAD_METHOD              9 (SetValueEx)
+            120 LOAD_FAST                5 (key)
+            122 LOAD_FAST                3 (value_name)
+            124 LOAD_CONST               5 (0)
+            126 LOAD_GLOBAL              5 (winreg)
+            128 LOAD_ATTR               10 (REG_DWORD)
+            130 LOAD_CONST               5 (0)
+            132 CALL_METHOD              5
+            134 POP_TOP
+
+357         136 LOAD_GLOBAL              5 (winreg)
+            138 LOAD_METHOD             11 (CloseKey)
+            140 LOAD_FAST                5 (key)
+            142 CALL_METHOD              1
+            144 POP_TOP
+
+358         146 LOAD_GLOBAL              3 (status_label)
+            148 LOAD_ATTR                4 (config)
+            150 LOAD_CONST              10 ('操作成功，版本自动更新已关闭')
+            152 LOAD_CONST              11 ('green')
+            154 LOAD_CONST               8 (('text', 'fg'))
+            156 CALL_FUNCTION_KW         2
+            158 POP_TOP
+            160 POP_BLOCK
+            162 JUMP_FORWARD            48 (to 212)
+
+359     >>  164 DUP_TOP
+            166 LOAD_GLOBAL             12 (Exception)
+            168 COMPARE_OP              10 (exception match)
+            170 POP_JUMP_IF_FALSE      210
+            172 POP_TOP
+            174 STORE_FAST               6 (e)
+            176 POP_TOP
+            178 SETUP_FINALLY           18 (to 198)
+
+360         180 LOAD_GLOBAL              3 (status_label)
+            182 LOAD_ATTR                4 (config)
+            184 LOAD_CONST              12 ('请先关闭卡巴的自我保护并退出软件再操作')
+            186 LOAD_CONST               7 ('red')
+            188 LOAD_CONST               8 (('text', 'fg'))
+            190 CALL_FUNCTION_KW         2
+            192 POP_TOP
+            194 POP_BLOCK
+            196 BEGIN_FINALLY
+        >>  198 LOAD_CONST               0 (None)
+            200 STORE_FAST               6 (e)
+            202 DELETE_FAST              6 (e)
+            204 END_FINALLY
+            206 POP_EXCEPT
+            208 JUMP_FORWARD             2 (to 212)
+        >>  210 END_FINALLY
+        >>  212 JUMP_FORWARD           128 (to 342)
+
+362     >>  214 SETUP_FINALLY           76 (to 292)
+
+363         216 LOAD_GLOBAL              5 (winreg)
+            218 LOAD_METHOD              6 (OpenKey)
+            220 LOAD_GLOBAL              5 (winreg)
+            222 LOAD_ATTR                7 (HKEY_LOCAL_MACHINE)
+            224 LOAD_FAST                1 (base_path)
+            226 LOAD_CONST               9 ('\\')
+            228 BINARY_ADD
+            230 LOAD_FAST                2 (subkey_path)
+            232 BINARY_ADD
+            234 LOAD_CONST               5 (0)
+            236 LOAD_GLOBAL              5 (winreg)
+            238 LOAD_ATTR                8 (KEY_SET_VALUE)
+            240 CALL_METHOD              4
+            242 STORE_FAST               5 (key)
+
+364         244 LOAD_GLOBAL              5 (winreg)
+            246 LOAD_METHOD              9 (SetValueEx)
+            248 LOAD_FAST                5 (key)
+            250 LOAD_FAST                3 (value_name)
+            252 LOAD_CONST               5 (0)
+            254 LOAD_GLOBAL              5 (winreg)
+            256 LOAD_ATTR               10 (REG_DWORD)
+            258 LOAD_CONST               5 (0)
+            260 CALL_METHOD              5
+            262 POP_TOP
+
+365         264 LOAD_GLOBAL              5 (winreg)
+            266 LOAD_METHOD             11 (CloseKey)
+            268 LOAD_FAST                5 (key)
+            270 CALL_METHOD              1
+            272 POP_TOP
+
+366         274 LOAD_GLOBAL              3 (status_label)
+            276 LOAD_ATTR                4 (config)
+            278 LOAD_CONST              10 ('操作成功，版本自动更新已关闭')
+            280 LOAD_CONST              11 ('green')
+            282 LOAD_CONST               8 (('text', 'fg'))
+            284 CALL_FUNCTION_KW         2
+            286 POP_TOP
+            288 POP_BLOCK
+            290 JUMP_FORWARD            50 (to 342)
+
+367     >>  292 DUP_TOP
+            294 LOAD_GLOBAL             12 (Exception)
+            296 COMPARE_OP              10 (exception match)
+            298 EXTENDED_ARG             1
+            300 POP_JUMP_IF_FALSE      340
+            302 POP_TOP
+            304 STORE_FAST               6 (e)
+            306 POP_TOP
+            308 SETUP_FINALLY           18 (to 328)
+
+368         310 LOAD_GLOBAL              3 (status_label)
+            312 LOAD_ATTR                4 (config)
+            314 LOAD_CONST              12 ('请先关闭卡巴的自我保护并退出软件再操作')
+            316 LOAD_CONST               7 ('red')
+            318 LOAD_CONST               8 (('text', 'fg'))
+            320 CALL_FUNCTION_KW         2
+            322 POP_TOP
+            324 POP_BLOCK
+            326 BEGIN_FINALLY
+        >>  328 LOAD_CONST               0 (None)
+            330 STORE_FAST               6 (e)
+            332 DELETE_FAST              6 (e)
+            334 END_FINALLY
+            336 POP_EXCEPT
+            338 JUMP_FORWARD             2 (to 342)
+        >>  340 END_FINALLY
+        >>  342 JUMP_FORWARD            14 (to 358)
+
+370     >>  344 LOAD_GLOBAL              3 (status_label)
+            346 LOAD_ATTR                4 (config)
+            348 LOAD_CONST              13 ('未检测到卡巴斯基家庭版软件')
+            350 LOAD_CONST               7 ('red')
+            352 LOAD_CONST               8 (('text', 'fg'))
+            354 CALL_FUNCTION_KW         2
+            356 POP_TOP
+        >>  358 LOAD_CONST               0 (None)
+            360 RETURN_VALUE
+
+Disassembly of <code object update_status at 0x000002076CF62DF0, file "Kaspersky.py", line 373>:
+374           0 LOAD_GLOBAL              0 (get_kaspersky_version)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (version_key)
+
+375           6 LOAD_GLOBAL              1 (check_process_running)
+              8 LOAD_CONST               1 ('avpui.exe')
+             10 CALL_FUNCTION            1
+             12 STORE_FAST               1 (process_running)
+
+376          14 LOAD_FAST                1 (process_running)
+             16 POP_JUMP_IF_FALSE       22
+             18 LOAD_CONST               2 ('运行中')
+             20 JUMP_FORWARD             2 (to 24)
+        >>   22 LOAD_CONST               3 ('已退出')
+        >>   24 STORE_FAST               2 (process_status)
+
+377          26 LOAD_FAST                1 (process_running)
+             28 POP_JUMP_IF_FALSE       34
+             30 LOAD_CONST               4 ('red')
+             32 JUMP_FORWARD             2 (to 36)
+        >>   34 LOAD_CONST               5 ('green')
+        >>   36 STORE_FAST               3 (process_color)
+
+378          38 LOAD_GLOBAL              2 (process_value)
+             40 LOAD_ATTR                3 (config)
+             42 LOAD_FAST                2 (process_status)
+             44 LOAD_FAST                3 (process_color)
+             46 LOAD_CONST               6 (('text', 'fg'))
+             48 CALL_FUNCTION_KW         2
+             50 POP_TOP
+
+380          52 LOAD_FAST                0 (version_key)
+             54 POP_JUMP_IF_FALSE      180
+
+381          56 LOAD_FAST                0 (version_key)
+             58 LOAD_METHOD              4 (startswith)
+             60 LOAD_CONST               7 ('AVP')
+             62 CALL_METHOD              1
+             64 POP_JUMP_IF_FALSE       72
+
+382          66 LOAD_CONST               8 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             68 STORE_FAST               4 (base_path)
+             70 JUMP_FORWARD            20 (to 92)
+
+383     >>   72 LOAD_FAST                0 (version_key)
+             74 LOAD_METHOD              4 (startswith)
+             76 LOAD_CONST               9 ('KES')
+             78 CALL_METHOD              1
+             80 POP_JUMP_IF_FALSE       88
+
+384          82 LOAD_CONST              10 ('SOFTWARE\\WOW6432Node\\KasperskyLab\\protected')
+             84 STORE_FAST               4 (base_path)
+             86 JUMP_FORWARD             4 (to 92)
+
+386     >>   88 LOAD_CONST               8 ('SOFTWARE\\WOW6432Node\\KasperskyLab')
+             90 STORE_FAST               4 (base_path)
+
+388     >>   92 LOAD_GLOBAL              5 (get_registry_value)
+
+389          94 LOAD_FAST                4 (base_path)
+
+390          96 LOAD_FAST                0 (version_key)
+             98 FORMAT_VALUE             0
+            100 LOAD_CONST              11 ('\\settings')
+            102 BUILD_STRING             2
+
+391         104 LOAD_CONST              12 ('EnableSelfProtection')
+
+388         106 CALL_FUNCTION            3
+            108 STORE_FAST               5 (self_protection)
+
+393         110 LOAD_FAST                5 (self_protection)
+            112 LOAD_CONST              13 (1)
+            114 COMPARE_OP               2 (==)
+            116 POP_JUMP_IF_FALSE      122
+            118 LOAD_CONST              14 ('已开启')
+            120 JUMP_FORWARD            14 (to 136)
+        >>  122 LOAD_FAST                5 (self_protection)
+            124 LOAD_CONST              15 (0)
+            126 COMPARE_OP               2 (==)
+            128 POP_JUMP_IF_FALSE      134
+            130 LOAD_CONST              16 ('已关闭')
+            132 JUMP_FORWARD             2 (to 136)
+        >>  134 LOAD_CONST              17 ('未检测到')
+        >>  136 STORE_FAST               6 (self_protection_status)
+
+394         138 LOAD_FAST                5 (self_protection)
+            140 LOAD_CONST              13 (1)
+            142 COMPARE_OP               2 (==)
+            144 POP_JUMP_IF_FALSE      150
+            146 LOAD_CONST               4 ('red')
+            148 JUMP_FORWARD            14 (to 164)
+        >>  150 LOAD_FAST                5 (self_protection)
+            152 LOAD_CONST               0 (None)
+            154 COMPARE_OP               8 (is)
+            156 POP_JUMP_IF_FALSE      162
+            158 LOAD_CONST               4 ('red')
+            160 JUMP_FORWARD             2 (to 164)
+        >>  162 LOAD_CONST               5 ('green')
+        >>  164 STORE_FAST               7 (self_protection_color)
+
+395         166 LOAD_GLOBAL              6 (self_protection_value)
+            168 LOAD_ATTR                3 (config)
+            170 LOAD_FAST                6 (self_protection_status)
+            172 LOAD_FAST                7 (self_protection_color)
+            174 LOAD_CONST               6 (('text', 'fg'))
+            176 CALL_FUNCTION_KW         2
+            178 POP_TOP
+
+397     >>  180 LOAD_GLOBAL              7 (root)
+            182 LOAD_METHOD              8 (after)
+            184 LOAD_CONST              18 (1000)
+            186 LOAD_GLOBAL              9 (update_status)
+            188 CALL_METHOD              2
+            190 POP_TOP
+            192 LOAD_CONST               0 (None)
+            194 RETURN_VALUE
+
+Disassembly of <code object show_function_info at 0x000002076CF62D40, file "Kaspersky.py", line 544>:
+545           0 LOAD_GLOBAL              0 (status_label)
+              2 LOAD_ATTR                1 (config)
+              4 LOAD_FAST                1 (info)
+              6 LOAD_CONST               1 (('text',))
+              8 CALL_FUNCTION_KW         1
+             10 POP_TOP
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object hide_function_info at 0x000002076CF62BE0, file "Kaspersky.py", line 548>:
+549           0 LOAD_GLOBAL              0 (status_label)
+              2 LOAD_ATTR                1 (config)
+              4 LOAD_CONST               1 ('就绪')
+              6 LOAD_CONST               2 (('text',))
+              8 CALL_FUNCTION_KW         1
+             10 POP_TOP
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x000002076CF62B30, file "Kaspersky.py", line 571>:
+571           0 LOAD_GLOBAL              0 (show_function_info)
+              2 LOAD_FAST                0 (e)
+              4 LOAD_FAST                1 (info)
+              6 CALL_FUNCTION            2
+              8 RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x000002076CF62A80, file "Kaspersky.py", line 603>:
+603           0 LOAD_GLOBAL              0 (show_function_info)
+              2 LOAD_FAST                0 (e)
+              4 LOAD_FAST                1 (info)
+              6 CALL_FUNCTION            2
+              8 RETURN_VALUE
